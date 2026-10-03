@@ -1,0 +1,159 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Tue 29 Sep 2026 · Equity desk</title><meta name="description" content="An open notebook on Indian stock picking: strategy, experiments and results.">
+<link rel="stylesheet" href="../style.css"></head><body>
+<header><div class="wrap"><a class="brand" href="../index.html">equity.curiosta.com</a><nav><a href="../index.html">Home</a><a href="../strategy-quarterly.html">Quarterly strategy</a><a href="../strategy-intraday.html">Intraday strategy</a><a href="../journal/index.html" class=on>Journal</a><a href="../experiments.html">Experiments</a><a href="../code.html">Code</a><a href="../changelog.html">Changelog</a></nav></div></header>
+<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="nse-intraday-candidates-tue-29-sep-2026">NSE Intraday Candidates — Tue 29 Sep 2026</h1>
+<p><strong>Levels planned from Mon 28 Sep 2026 EOD only (not live)</strong></p>
+<h2 id="1-confirmation-data-used">1) Confirmation — data used</h2>
+<ul>
+<li><strong>Session bar date:</strong> Mon 28 Sep 2026 (Yahoo Finance India <code>.NS</code> daily bars; Screener.in “28 Sep - close price”).</li>
+<li><strong>Index context:</strong> Nifty 50 closed <strong>22,780.25 (−1.56% / −360.25)</strong>; Sensex <strong>72,771.72 (−1.52%)</strong>. Breadth: 47/50 Nifty down; only DRREDDY, INFY, HDFCLIFE green in Nifty. (Hindu BusinessLine / Upstox / HDFC Sky, 28 Sep 2026.)</li>
+<li><strong>Technicals:</strong> Yahoo Finance chart API OHLC/volume; 20/50-DMA, RSI(14), 20d RS vs Nifty computed from those closes (script in this folder → <code>eod_tech.json</code>).</li>
+<li><strong>Fundamentals:</strong> Screener.in consolidated pages fetched 28 Sep 2026 evening IST (figures cited below).</li>
+<li><strong>Calendar:</strong> Tue 29 Sep 2026 is a normal NSE day. Fri 2 Oct Gandhi Jayanti irrelevant for this run.</li>
+</ul>
+<p>Market bias for Tue: risk-off after sharp Mon sell-off — prefer stock-specific RS over index beta; cancel quickly if Nifty gaps lower.</p>
+<p>Only <strong>2</strong> names clear both quality (≥~15% ROE/ROCE, liquid large-cap/F&amp;O, manageable debt, no obvious governance red flag) <strong>and</strong> Mon EOD momentum with a usable ~1% stop. Not forcing a third.</p>
+<hr />
+<h2 id="2-ranked-candidates">2) Ranked CANDIDATES</h2>
+<h3 id="1-zyduslife-nse-primary">1) ZYDUSLIFE (NSE) — PRIMARY</h3>
+<p><strong>Fundamental (Screener.in, as of Mon 28 close ₹1,215):</strong><br />
+ROE <strong>21.2%</strong>, ROCE <strong>21.1%</strong>; sales 3Y CAGR <strong>16%</strong>, profit 5Y CAGR <strong>~19%</strong>; mcap <strong>₹1,21,388 Cr</strong>; promoter <strong>~75%</strong>. Borrowings rose in FY26 (D/E ≈ <strong>0.46</strong> from Screener BS — manageable, watch). No Screener governance checklist red flag.</p>
+<p><strong>Technical setup (Mon 28 Sep EOD — Yahoo ZYDUSLIFE.NS):</strong><br />
+O <strong>1,210.70</strong> / H <strong>1,228.60</strong> / L <strong>1,201.20</strong> / C <strong>1,215.00</strong> (+0.92%); vol <strong>39.9L</strong> vs ~20d avg <strong>~12.5L</strong> (<strong>~3.2×</strong>). Fresh <strong>52W high</strong> zone (H 1,228.60). Above <strong>rising</strong> 20-DMA <strong>~1,148</strong> and <strong>rising</strong> 50-DMA <strong>~1,139</strong>; RSI(14) <strong>~67</strong>; 20d RS vs Nifty <strong>~+10.4 pp</strong>. USFDA NJ pharmacovigilance inspection NIL observations (Business Standard / ZeeBiz, 28 Sep). Structure: HH breakout / continuation on heavy volume into weak tape.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limit entry</td>
+<td><strong>1,212</strong></td>
+</tr>
+<tr>
+<td>Stop (~1%)</td>
+<td><strong>1,200</strong></td>
+</tr>
+<tr>
+<td>Target (1.5–2× risk)</td>
+<td><strong>1,230 – 1,236</strong></td>
+</tr>
+<tr>
+<td>R:R</td>
+<td><strong>1.5 : 1 to 2.0 : 1</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reason + source:</strong> Clean quality + rare green/high-vol RS name on a −1.56% Nifty day; above rising 20/50-DMA; catalyst plus volume confirmation. Yahoo EOD 28 Sep; Screener fundamentals; BS/ZeeBiz news.</p>
+<p><strong>Cancel at open:</strong> Gap open <strong>≥1,225</strong> (chase past useful limit); open <strong>≤1,200</strong> (stop already gone); or Nifty opens sharply weak and ZYDUS fails to hold <strong>1,205</strong> in first 15–30 min.</p>
+<hr />
+<h3 id="2-divislab-nse-secondary">2) DIVISLAB (NSE) — SECONDARY</h3>
+<p><strong>Fundamental (Screener.in, as of Mon 28 close ₹9,550):</strong><br />
+ROE <strong>16.5%</strong>, ROCE <strong>22.0%</strong>; <strong>almost debt-free</strong> (borrowings negligible); sales 3Y CAGR <strong>11%</strong>, TTM sales <strong>+16%</strong>, TTM profit <strong>+29%</strong>; mcap <strong>₹2,53,773 Cr</strong>; F&amp;O/Nifty Next 50 liquid. Screener notes rich valuation (high P/B) but quality/debt clear the checklist.</p>
+<p><strong>Technical setup (Mon 28 Sep EOD — Yahoo DIVISLAB.NS):</strong><br />
+O <strong>9,600</strong> / H <strong>9,655</strong> / L <strong>9,473</strong> / C <strong>9,550</strong> (−0.72%); vol <strong>3.8L</strong> vs ~20d avg <strong>~4.8L</strong> (<strong>~0.8×</strong> — soft). Still above <strong>rising</strong> 20-DMA <strong>~9,370</strong> and <strong>rising</strong> 50-DMA <strong>~8,729</strong>; RSI(14) <strong>~64</strong>; 20d RS vs Nifty <strong>~+6.7 pp</strong>. Structure: orderly pullback inside HH-HL uptrend (held relatively well vs Nifty crash) — volume not confirmatory, hence secondary only.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limit entry</td>
+<td><strong>9,530</strong></td>
+</tr>
+<tr>
+<td>Stop (~1%)</td>
+<td><strong>9,435</strong></td>
+</tr>
+<tr>
+<td>Target (1.5–2× risk)</td>
+<td><strong>9,670 – 9,720</strong></td>
+</tr>
+<tr>
+<td>R:R</td>
+<td><strong>1.5 : 1 to 2.0 : 1</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reason + source:</strong> Quality large-cap API name still above rising 20/50 with positive RS after a shallow Mon dip; usable 1% stop under prior-day mid-range. Lower conviction than ZYDUS (red day + sub-avg volume). Yahoo EOD 28 Sep; Screener fundamentals.</p>
+<p><strong>Cancel at open:</strong> Gap open <strong>≥9,620</strong> (chase); open <strong>≤9,435</strong>; or fails <strong>9,470</strong> early with Nifty still selling.</p>
+<hr />
+<h2 id="3-rejects-considered">3) REJECTS (considered)</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Why rejected (1 line)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DRREDDY</strong></td>
+<td>Strong Mon RS (+1.67%, vol ~2.6×) but Screener ROE <strong>11.2%</strong> / ROCE <strong>13.0%</strong> fail ≥15% quality; TTM profit −43%; results due <strong>23 Oct</strong>.</td>
+</tr>
+<tr>
+<td><strong>APOLLOHOSP</strong></td>
+<td>Quality OK (ROE 21.2% / ROCE 17.4%) but 20/50-DMA <strong>not rising</strong>; Mon −0.33%, RSI ~51 — prior secondary lost momentum edge.</td>
+</tr>
+<tr>
+<td><strong>AUROPHARMA</strong></td>
+<td>Above MAs / ok RS but Screener ROE <strong>10.1%</strong> / ROCE <strong>12.9%</strong> fail quality gate.</td>
+</tr>
+<tr>
+<td><strong>MANKIND</strong></td>
+<td>ROE <strong>13.1%</strong> / ROCE <strong>13.5%</strong> fail quality; Mon closed near day low (close_pos ~0.09).</td>
+</tr>
+<tr>
+<td><strong>HINDZINC</strong></td>
+<td>Still below 20/50-DMA; RSI ~46; prior 52W-low soft tape continues.</td>
+</tr>
+<tr>
+<td><strong>OFSS</strong></td>
+<td>Deep below 20/50-DMA (~11.5k vs C 10,800); RSI ~36; RS20 ~−8 pp.</td>
+</tr>
+<tr>
+<td><strong>BSE</strong></td>
+<td>Below falling 20/50-DMA; RSI ~37; weak close_pos.</td>
+</tr>
+<tr>
+<td><strong>POLYCAB</strong></td>
+<td>Below 20/50-DMA; RSI ~37; closed near day low (−% vs Nifty not enough).</td>
+</tr>
+<tr>
+<td><strong>INFY</strong></td>
+<td>Green on Mon but below both DMAs, RSI ~31 — oversold bounce not quality-momentum setup.</td>
+</tr>
+<tr>
+<td><strong>GLAXO</strong></td>
+<td>Green/high vol but day range ~7% (L 2790–H 2987) — no clean ~1% stop.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-desk-paste-copy-paste-ready">4) Desk paste (copy-paste ready)</h2>
+<pre><code>Intraday desk — planned levels from Mon 28 Sep EOD for Tue 29 Sep session (not live)
+
+Market: Nifty 22,780 (−1.56%). Prefer RS names; cancel if index gaps hard lower.
+
+1) ZYDUSLIFE — PRIMARY
+Entry 1212 | Stop 1200 | Target 1230–1236 | R:R 1.5–2
+ROE 21.2% ROCE 21.1% | Mon C 1215 H 1228.6 vol ~3.2x | above rising 20/50 DMA RSI~67 | USFDA NIL news
+Cancel: gap ≥1225 or open ≤1200 or fails 1205 early
+
+2) DIVISLAB — SECONDARY
+Entry 9530 | Stop 9435 | Target 9670–9720 | R:R 1.5–2
+ROE 16.5% ROCE 22% debt-free | Mon C 9550 (−0.72%) above rising 20/50 RSI~64 RS+ | vol soft ~0.8x
+Cancel: gap ≥9620 or open ≤9435 or fails 9470 early
+
+No 3rd name — rest failed quality or Mon technicals (DRREDDY funda, APOLLOHOSP MAs flat, HINDZINC/OFSS/BSE/POLYCAB still weak).
+Real Stock Trader sizes / proposes; the owner yes required. No live data.
+</code></pre></main>
+<footer class="wrap">Updated Sat 03 Oct 2026, 10:48 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+</body></html>

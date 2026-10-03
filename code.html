@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Code · Equity desk</title><meta name="description" content="An open notebook on Indian stock picking: strategy, experiments and results.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><div class="wrap"><a class="brand" href="index.html">equity.curiosta.com</a><nav><a href="index.html">Home</a><a href="strategy-quarterly.html">Quarterly strategy</a><a href="strategy-intraday.html">Intraday strategy</a><a href="journal/index.html">Journal</a><a href="experiments.html">Experiments</a><a href="code.html" class=on>Code</a><a href="changelog.html">Changelog</a></nav></div></header>
+<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="code">Code</h1>
+<p>The working scripts live in a private repository. These are the parts where the exact formula matters. They're plain Python 3 standard library, and they read Yahoo Finance's public daily and 15-minute chart data.</p>
+<h2 id="trend-gate-and-moving-averages">Trend gate and moving averages</h2>
+<p>A stock passes the trend gate when its last close is above its 50-day simple moving average <strong>and</strong> that average is higher than it was 5 sessions ago.</p>
+<pre><code class="language-python">SLOPE_LB = 5  # sessions back used to judge a rising average
+
+def sma(xs, n, end=None):
+    end = len(xs) if end is None else end
+    return sum(xs[end - n:end]) / n
+
+d50 = sma(closes, 50)
+above_50 = closes[-1] &gt; d50
+dma50_rising = d50 &gt; sma(closes, 50, len(closes) - SLOPE_LB)
+</code></pre>
+<h2 id="rsi-wilder-14">RSI (Wilder, 14)</h2>
+<pre><code class="language-python">def rsi_wilder(closes, n=14):
+    ch = [b - a for a, b in zip(closes, closes[1:])]
+    g = sum(max(c, 0) for c in ch[:n]) / n
+    l = sum(max(-c, 0) for c in ch[:n]) / n
+    for c in ch[n:]:
+        g = (g * (n - 1) + max(c, 0)) / n
+        l = (l * (n - 1) + max(-c, 0)) / n
+    return 100.0 if l == 0 else 100 - 100 / (1 + g / l)
+</code></pre>
+<h2 id="relative-strength-against-the-nifty">Relative strength against the Nifty</h2>
+<p>The 20-session return of the stock minus that of the Nifty 50 (<code>^NSEI</code>), in percentage points.</p>
+<pre><code class="language-python">r20 = (closes[-1] / closes[-21] - 1) * 100
+rs20_pp = r20 - (nifty_close[last_date] / nifty_close[date_21_back] - 1) * 100
+</code></pre>
+<h2 id="opening-range-noise">Opening-range noise</h2>
+<p>The median 09:15–09:45 high-to-low range over the last 20 completed sessions, compared with the stop distance. Above 1.0 means an ordinary opening swing is bigger than the stop.</p>
+<pre><code class="language-python">NOISE_OR30_X_STOP = 1.0  # flag if median opening range &gt; 1.0 x stop distance
+NOISE_ATR_PCT = 2.5      # backup flag: daily ATR(14) &gt; 2.5% of price
+
+or30_med = median(opening_ranges[-20:])   # first two 15-minute bars of each day
+or30_vs_stop = or30_med / (entry - stop)
+noise_flag = atr14_pct &gt; NOISE_ATR_PCT or or30_vs_stop &gt; NOISE_OR30_X_STOP
+</code></pre>
+<h2 id="position-size-for-a-fixed-rupee-risk">Position size for a fixed rupee risk</h2>
+<p>The trader risks at most ₹150 per trade. The stop-loss order is placed ₹4 below the stop to make sure it fills, so that buffer counts as risk too.</p>
+<pre><code class="language-python">shares = int(150 // (entry - (stop - 4)))
+shares = min(shares, int(15000 // entry))  # notional cap
+</code></pre></main>
+<footer class="wrap">Updated Sat 03 Oct 2026, 10:48 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+</body></html>

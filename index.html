@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · Equity desk</title><meta name="description" content="An open notebook on Indian stock picking: strategy, experiments and results.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><div class="wrap"><a class="brand" href="index.html">equity.curiosta.com</a><nav><a href="index.html" class=on>Home</a><a href="strategy-quarterly.html">Quarterly strategy</a><a href="strategy-intraday.html">Intraday strategy</a><a href="journal/index.html">Journal</a><a href="experiments.html">Experiments</a><a href="code.html">Code</a><a href="changelog.html">Changelog</a></nav></div></header>
+<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="equity-desk-an-open-notebook-on-indian-stock-picking">Equity desk: an open notebook on Indian stock picking</h1>
+<p>This site is the working log of a small, AI-assisted equity desk that studies NSE-listed stocks. It shows how we pick stocks, what we tested, what went wrong, and which rules we changed because of it. It's updated every trading day.</p>
+<p>There are two separate experiments:</p>
+<ul>
+<li><strong>Quarterly fundamental screen.</strong> Every quarter, a Screener.in growth-and-quality screen produces a short list of strong businesses. They're bought only when the price trend agrees, and are tracked in a <strong>paper portfolio</strong> (simulated money, no real orders). <a href="strategy-quarterly.html">Read the method</a>.</li>
+<li><strong>Next-day intraday candidates.</strong> Each evening, liquid NSE stocks are filtered on end-of-day momentum and noise, with fixed entry, stop and target levels for the next session. A small, strictly risk-capped real account (at most ₹150 at risk per trade) tests it. <a href="strategy-intraday.html">Read the method</a>.</li>
+</ul>
+<h2 id="where-things-stand">Where things stand</h2>
+<ul>
+<li><strong>Paper portfolio (quarterly screen):</strong> two positions opened 21–22 Sep 2026, HINDZINC and OFSS, each with an 8% trailing stop on closing prices. At the 29 Sep 2026 close the book was about −5.6%, while the Nifty fell about 3% over the same week. The picks were sound businesses, but we bought them at the wrong time and put too much into each. The <a href="strategy-quarterly.html#lessons-and-rule-changes-dated">lessons</a> are now rules. The next screen runs on about 17 Nov 2026, after the September-quarter results deadline.</li>
+<li><strong>Intraday:</strong> 3 real trades so far (one target hit, two stops), about −₹56 net in total. That's far too few to judge. We'll review after about 20 trades. A 58-session backtest of common intraday setups found <a href="experiments.html#intraday-backtest-58-sessions-3-oct-2026">no positive edge after costs</a>.</li>
+</ul>
+<h2 id="latest-changes">Latest changes</h2>
+<ul>
+<li><strong>3 Oct 2026:</strong> site launched. Added the 58-session intraday backtest, the stop-width study and the 1 Jul paper-portfolio replay.</li>
+<li><strong>1 Oct 2026:</strong> intraday: two opening stop-outs in a weak market. Added a confirmation entry while the Nifty is below a falling 50-day average (from 5 Oct).</li>
+<li><strong>30 Sep 2026:</strong> intraday: added the opening-noise check (median first-30-minute range against the stop), the weak-market filter and the 1.5R minimum after a gap. The universe widened to F&amp;O and Nifty Midcap 150 names with at least ₹100 crore median turnover.</li>
+</ul>
+<h2 id="how-to-read-this-site">How to read this site</h2>
+<ul>
+<li><strong><a href="strategy-quarterly.html">Strategy</a>:</strong> the rules we use today, with the date each rule was added.</li>
+<li><strong><a href="journal/index.html">Journal</a>:</strong> every intraday brief, posted only <strong>after</strong> its session has closed, plus the outcome.</li>
+<li><strong><a href="experiments.html">Experiments</a>:</strong> backtests and replays, including the ones that failed.</li>
+<li><strong><a href="code.html">Code</a>:</strong> short snippets of the scripts, where the exact formula matters.</li>
+</ul></main>
+<footer class="wrap">Updated Sat 03 Oct 2026, 10:48 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+</body></html>

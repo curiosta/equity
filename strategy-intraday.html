@@ -1,0 +1,134 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Intraday strategy · Equity desk</title><meta name="description" content="An open notebook on Indian stock picking: strategy, experiments and results.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><div class="wrap"><a class="brand" href="index.html">equity.curiosta.com</a><nav><a href="index.html">Home</a><a href="strategy-quarterly.html">Quarterly strategy</a><a href="strategy-intraday.html" class=on>Intraday strategy</a><a href="journal/index.html">Journal</a><a href="experiments.html">Experiments</a><a href="code.html">Code</a><a href="changelog.html">Changelog</a></nav></div></header>
+<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="nse-next-day-intraday-candidates">NSE next-day intraday candidates</h1>
+<p>A living playbook for building an evening list of intraday candidates for the next NSE session. A trader sizes and executes the trades; the picker never places orders. <strong>Update this file after every session</strong>: log the brief and its outcome, and date any rule change under Lessons.</p>
+<h2 id="ground-rules">Ground rules</h2>
+<ul>
+<li>Never invent numbers. Cite a source for every figure: Yahoo Finance India, NSE or Moneycontrol for prices and volume; Screener.in for fundamentals; named news outlets for catalysts.</li>
+<li>Levels come from the <strong>last close</strong>, never from live prices. Say how fresh the data is.</li>
+<li>Post fewer names rather than forcing a pick. An empty list is a valid result.</li>
+<li>Write numbers-first in plain English, using ₹ and NSE tickers.</li>
+<li>Aim for modest, repeatable gains. No gambling.</li>
+</ul>
+<h2 id="when">When</h2>
+<p>Each trading evening at about 7:20 PM IST, for the next session. Check the NSE holiday calendar first (for example, 2 Oct is Gandhi Jayanti and the market is closed).</p>
+<h2 id="step-1-tradable-universe-owner-approved-30-sep-2026">Step 1: tradable universe (owner-approved 30 Sep 2026)</h2>
+<ul>
+<li><strong>Base pool:</strong> NSE F&amp;O stocks plus the Nifty Midcap 150.</li>
+<li><strong>Liquidity floor:</strong> 20-day median daily turnover of at least ₹100 crore.</li>
+<li><strong>Price:</strong> ₹100–₹3,000, so at least 5 shares fit the sizing.</li>
+<li><strong>Exclude:</strong> ASM/GSM surveillance, T2T or circuit-bound names, stocks in the F&amp;O ban list, names with results or a corporate action the next session, and any live governance scandal or fraud news.</li>
+<li><strong>Fundamentals</strong> (ROE, ROCE, debt from Screener.in) are a tie-breaker and risk note only, not a gate.</li>
+</ul>
+<h2 id="step-2-price-fit-and-sizing">Step 2: price fit and sizing</h2>
+<p>The trader risks at most ₹150 per trade. <strong>Sizing (trader's rule, 30 Sep 2026):</strong> shares = ₹150 ÷ (entry − SL limit), where the SL limit is the stop minus ₹4. Example: a 1% stop on a ₹2,000 stock gives 150 ÷ 24 = 6 shares. Notional stays at or under ₹15,000, so prefer stocks priced at about ₹3,000 or less, where at least 5 shares fit. Quote share counts on this basis.</p>
+<h2 id="step-3-end-of-day-technicals-weighted-to-recent-momentum">Step 3: end-of-day technicals, weighted to recent momentum</h2>
+<ul>
+<li>Price above a rising 20-day and 50-day moving average (DMA). A flat DMA means reject.</li>
+<li>Stronger than the Nifty over the past 1–4 weeks, measured as the 20-day return gap in percentage points.</li>
+<li>A breakout, or higher highs and higher lows. Avoid fresh 52-week lows or stocks below their 50- or 200-DMA.</li>
+<li>A close in the top part of the day's range on volume above the 20-day average (about 1.3x or more is good). Don't relist a name that closed at its day low after a target hit.</li>
+<li>RSI(14) strong but not stretched, about 55–70.</li>
+<li><strong>Weak market:</strong> while the Nifty is below a falling 50-DMA, list at most 2 names, and only those clearly beating the index (about +5 points of relative strength or more). Skip everything if the index gaps sharply lower.</li>
+</ul>
+<h2 id="step-3b-noise-against-the-stop">Step 3b: noise against the stop</h2>
+<p>Use <code>or30_med</code> (the median first-30-minute high-to-low range over the last 20 sessions), <code>or30_vs_stop</code> and <code>atr14_pct</code> from <code>eod_tech.py</code>.
+- <code>or30_vs_stop</code> above 1.0 means the normal opening swing is bigger than the stop. Drop the name, or flag it as noisy.
+- Treat 0.9–1.1 as borderline and say so.
+- <code>atr14_pct</code> above 2.5 is a backup flag, and the only test when 15-minute data is missing.
+- <strong>A wider stop needs a wider target.</strong> For a noisy name offered with a wider stop, the worst-case risk is the wider stop plus the trader's ₹4 SL-trigger buffer. Size it at ₹150 divided by that risk. The target must be at least 1.5× that risk away and sit at a realistic level. If no such level exists, drop the name. Whether to take the wider stop is the owner's call.</p>
+<h2 id="step-4-levels">Step 4: levels</h2>
+<ul>
+<li>Limit entry near the last close. Stop about 1% below entry.</li>
+<li>Target 1.5–2R (R = entry minus stop), set at a <strong>realistic</strong> level such as a recent high or nearby resistance.</li>
+<li><strong>The target stays fixed after a gap</strong> (the owner's rule), so avoid targets that only just clear 1.5R.</li>
+<li><strong>Minimum 1.5R after any gap shift.</strong> State the open price above which the trade is skipped: target minus 1.5R.</li>
+</ul>
+<h2 id="traders-execution-rules-so-skip-lines-match">Trader's execution rules (so skip lines match)</h2>
+<ul>
+<li>Gap rule, judged on the official open:</li>
+<li>An open less than 1% above entry moves the entry and stop up by the gap, and the target stays fixed.</li>
+<li>An open 1% or more above entry, at or below the stop, or leaving less than 1.5R to the target, is a skip.</li>
+<li><strong>After a 1R gain (updated 30 Sep 2026):</strong> the stop trails at the higher of entry + ₹1.50 or 1% below the day's high, and only moves up. The target is a fixed limit sell at the picker's level.</li>
+<li>An unfilled entry is cancelled at 12:00. Positions are squared off by 3:05 PM, before Zerodha's 3:12 PM cutoff. Nothing is held overnight.</li>
+<li><strong>Confirmation entry (owner-approved 1 Oct 2026, from Mon 5 Oct):</strong> while the Nifty is below a falling 50-DMA, there's no buy at the open. At about 9:30, buy only if the price is at or above the entry and the low since 9:15 has held above the weak-hold level, with a limit no higher than the 1.5R skip price. Otherwise skip. Mark such briefs "confirmation entry" and always give a weak-hold level.</li>
+<li><strong>Open-mode weak skip (owner-approved, from Mon 5 Oct):</strong> on normal open-entry days the trader skips at the open if the last price is at or below weak-hold + 0.25R. So set the weak-hold level at least about 0.5R below entry, or ordinary opening wobble will trigger a skip.</li>
+<li><strong>Confirmation days need room:</strong> the 09:30 buy limit is capped at the 1.5R skip price, so a pick with exactly 1.5R reward can only fill at its entry and rarely confirms. On confirmation-entry days prefer reward of about 1.8R or more. Mark the brief header "confirmation entry" (the trader's runner uses entry_mode "confirmation") and give weak-hold and the 1.5R skip price for every name.</li>
+<li>The owner approves each trade the evening before.</li>
+</ul>
+<h2 id="output-23-names-fewer-if-nothing-qualifies">Output (2–3 names, fewer if nothing qualifies)</h2>
+<ul>
+<li>A one-line market context (Nifty close and bias), plus the next session's calendar.</li>
+<li>For each name (the trader asked for these fields on 30 Sep 2026):</li>
+<li>Ticker, and whether it's the primary or a secondary pick.</li>
+<li>A quality or risk note, including fundamentals where relevant.</li>
+<li>Setup: close, high, low, DMAs, RSI, volume against its average, and relative strength against the Nifty.</li>
+<li>Noise: <code>or30_med</code>, <code>or30_vs_stop</code> and <code>atr14_pct</code>.</li>
+<li>Entry, stop, target, reward-to-risk, share count per Step 2, the <strong>1% skip price</strong> (entry × 1.01), the <strong>1.5R skip price</strong> (target − 1.5R), and a <strong>weak-hold level</strong> that must hold in the first 15–30 minutes.</li>
+<li>The reason, with sources.</li>
+<li>Short reasons for rejecting the obvious names.</li>
+<li>Which name to take if there's only one slot.</li>
+</ul>
+<h2 id="script">Script</h2>
+<p><code>scripts/eod_tech.py</code> (Python stdlib, Yahoo chart API) takes <code>SYM ... [--date YYYY-MM-DD] [--out file]</code>. It outputs:
+- O/H/L/C/V, dma20/dma50 with rising flags, and above_20/50.
+- rsi14, vol_x, close_pos, ret20 and rs20_pp.
+- Entry, stop, targets, and the share count for a ₹150 risk (check it against the Step 2 formula with the ₹4 SL buffer).
+- price_fit and stale.
+- <code>atr14</code>/<code>atr14_pct</code>, <code>or30_med</code>/<code>or30_med_pct</code>/<code>or30_n</code>, <code>or30_vs_stop</code> and <code>noise_flag</code>. The thresholds are constants at the top of the file.</p>
+<p>Before 15:30 it drops today's unfinished bar. <code>stale: true</code> means Yahoo is missing the latest daily bar, so verify against NSE.</p>
+<h2 id="daily-brief-log-newest-last-add-a-row-every-session">Daily brief log (newest last; add a row every session)</h2>
+<table>
+<thead>
+<tr>
+<th>Session</th>
+<th>Candidates (entry / stop / target)</th>
+<th>Outcome</th>
+<th>Lesson</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mon 28 Sep 2026</td>
+<td><strong>ZYDUSLIFE</strong> 1,200 / 1,188 / 1,218–1,224 (taken); APOLLOHOSP 8,880 / 8,790 / 9,015–9,060</td>
+<td><strong>Skipped.</strong> Opened at 1,210.70, at or above the skip line.</td>
+<td>A stock closing near its high on strong volume often gaps up, so leave room between the entry and the skip line.</td>
+</tr>
+<tr>
+<td>Tue 29 Sep 2026</td>
+<td><strong>ZYDUSLIFE</strong> 1,212 / 1,200 / 1,230; DIVISLAB 9,530 / 9,435 / 9,670–9,720 (failed price fit)</td>
+<td><strong>Target hit.</strong> Opened at 1,217.6, so the entry and stop shifted up and the target stayed. Bought 12 at 1,217.50 and sold at 1,230 within 2 minutes. About ₹134 net.</td>
+<td>Keeping the target fixed after a gap was right, because the high was 1,232.</td>
+</tr>
+<tr>
+<td>Wed 30 Sep 2026</td>
+<td><strong>EMCURE</strong> 1,959 / 1,939 / 1,995 (6 shares, skip above 1,965); LALPATHLAB 1,950 / 1,931 / 1,985–1,995 (watch)</td>
+<td><strong>Stopped out.</strong> Opened at 1,960, bought 6 and stopped at 1,940 at 9:42. −₹120 gross, about −₹132 net. The first 30 minutes ranged 29.2 points.</td>
+<td>EMCURE's median first-30-minute range was 26.1 points against a 20-point stop (1.31×). Added Step 3b and the weak-market filter.</td>
+</tr>
+<tr>
+<td>Thu 1 Oct 2026</td>
+<td><strong>DRREDDY</strong> 1,233 / 1,221 / 1,255 (9 shares, skip above 1,237); no secondary</td>
+<td><strong>Stopped out.</strong> Official open 1,233 (no shift). Bought 9 at 1,225.90 at 09:15:08, stop filled 1,220.80 at 09:16:22. −₹45.90 gross, about −₹58 net (est.), −0.43R. Nifty −0.41% at the open.</td>
+<td>Second straight stop-out in the first minutes, despite clean noise (or30_vs_stop 0.84). In a weak market the open itself sold off. Flag names whose open is weak relative to the entry; consider a confirmation entry (owner's call).</td>
+</tr>
+</tbody>
+</table>
+<p>Running tally after 3 real trades: about −₹56 net (estimated). Judge the method on the trader's R scorecard after about 20 trades.</p>
+<h2 id="lessons-and-rule-changes-dated">Lessons and rule changes (dated)</h2>
+<ul>
+<li>25 Sep 2026: use strong liquid names, momentum technicals and modest targets. No live data.</li>
+<li>28 Sep 2026: added the price fit (share price about ₹3,000 or less). Skip lines follow the trader's gap rule.</li>
+<li>29 Sep 2026: the target stays fixed after a gap, so set realistic targets with room. Don't relist a name that closed at its day low after a target hit.</li>
+<li>30 Sep 2026: added the noise check (Step 3b), the weak-market filter, the 1.5R minimum after a gap, and wider stop means wider target. The owner widened the universe beyond fundamentally screened stocks (Step 1).</li>
+<li>30 Sep 2026: the trader changed sizing to ₹150 ÷ (entry − (stop − ₹4)) and the post-1R trail to the higher of entry + ₹1.50 or 1% below the day's high. Each pick now lists the 1% skip price, the 1.5R skip price, a weak-hold level and or30_vs_stop.</li>
+<li>30 Sep 2026: the owner approved the new universe rules in Step 1 (F&amp;O + Midcap 150, ₹100 cr turnover, ₹100–3,000 price, exclusions), effective from the Sun 4 Oct list.</li>
+<li>1 Oct 2026: the trader asked that each brief flag names where the open is weak relative to the entry (e.g. state the weak-hold level and note if the index is set to open lower). Two opening stop-outs in a weak market; the owner approved a confirmation entry while the market is weak (see Trader's execution rules).</li>
+</ul>
+<h2 id="improving-this-skill">Improving this skill</h2>
+<p>After every session, add a log row with the brief, the actual open, the fill, the exit, the P&amp;L and one lesson. Every week or two, review the gap-skip rate, target-versus-stop hit rate, R per trade, and which setups worked. Change a rule only when several sessions support it, and date it under Lessons.</p></main>
+<footer class="wrap">Updated Sat 03 Oct 2026, 10:48 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+</body></html>

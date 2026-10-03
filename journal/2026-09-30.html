@@ -1,0 +1,168 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Wed 30 Sep 2026 · Equity desk</title><meta name="description" content="An open notebook on Indian stock picking: strategy, experiments and results.">
+<link rel="stylesheet" href="../style.css"></head><body>
+<header><div class="wrap"><a class="brand" href="../index.html">equity.curiosta.com</a><nav><a href="../index.html">Home</a><a href="../strategy-quarterly.html">Quarterly strategy</a><a href="../strategy-intraday.html">Intraday strategy</a><a href="../journal/index.html" class=on>Journal</a><a href="../experiments.html">Experiments</a><a href="../code.html">Code</a><a href="../changelog.html">Changelog</a></nav></div></header>
+<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="nse-intraday-candidates-wed-30-sep-2026">NSE Intraday Candidates — Wed 30 Sep 2026</h1>
+<p><strong>Levels planned from Tue 29 Sep 2026 EOD only (not live)</strong></p>
+<h2 id="1-confirmation-data-used">1) Confirmation — data used</h2>
+<ul>
+<li><strong>Session bar date:</strong> Tue 29 Sep 2026 (Yahoo Finance India <code>.NS</code> daily bars via <code>scripts/eod_tech.py</code>; Screener.in close prices match).</li>
+<li><strong>Index context:</strong> Nifty 50 closed <strong>22,716.20 (−0.28% / −64.05 from Mon 22,780.25)</strong>. Weak tape continues (third soft session after Fri's 23,140).</li>
+<li><strong>Technicals:</strong> Yahoo chart API; 20/50-DMA, RSI(14), vol vs 20d, RS vs Nifty from <code>eod_tech.py</code> (<code>intraday/data/2026-09-30/eod_tech.json</code>). No <code>stale</code> flags on finalists.</li>
+<li><strong>Fundamentals:</strong> Screener.in consolidated pages fetched 29 Sep 2026 evening IST.</li>
+<li><strong>Calendar:</strong> Wed 30 Sep 2026 is a normal NSE day. <strong>Fri 2 Oct 2026 is Gandhi Jayanti (closed)</strong> — next open after Thu 1 Oct is Mon 5 Oct.</li>
+</ul>
+<p>Market bias for Wed: still risk-off / choppy. Prefer RS names with rising DMAs; cancel quickly if Nifty gaps hard lower.</p>
+<p>Only <strong>2</strong> names clear quality (≥~15% ROE/ROCE, liquid enough for a ₹15k ticket, manageable debt) <strong>and</strong> Tue EOD momentum with a usable ~1% stop. Not forcing a third. Prior primary ZYDUSLIFE closed at the day low after hitting the target — not re-listed.</p>
+<hr />
+<h2 id="2-ranked-candidates">2) Ranked CANDIDATES</h2>
+<h3 id="1-emcure-nse-primary">1) EMCURE (NSE) — PRIMARY</h3>
+<p><strong>Fundamental (Screener.in, as of Tue 29 close ₹1,959):</strong><br />
+ROE <strong>20.1%</strong>, ROCE <strong>24.0%</strong>; sales TTM <strong>+18%</strong>, profit TTM <strong>+37%</strong>; sales 3Y CAGR <strong>15%</strong>, profit 3Y CAGR <strong>21%</strong>; mcap <strong>₹37,206 Cr</strong>; promoter <strong>~77.8%</strong>. Borrowings ₹1,521 Cr vs equity ~₹4,950 Cr (D/E ≈ <strong>0.31</strong> — manageable). Screener flags rich P/B (~7.5×); no governance checklist red flag.</p>
+<p><strong>Technical setup (Tue 29 Sep EOD — Yahoo EMCURE.NS):</strong><br />
+O <strong>1,922.10</strong> / H <strong>1,987.10</strong> / L <strong>1,912.00</strong> / C <strong>1,959.10</strong> (+1.62%); vol <strong>3.31L</strong> vs ~20d avg <strong>~1.99L</strong> (<strong>~1.67×</strong>). Above <strong>rising</strong> 20-DMA <strong>~1,946</strong> and <strong>rising</strong> 50-DMA <strong>~1,926</strong>; RSI(14) <strong>~53</strong>; 20d RS vs Nifty <strong>~+11.7 pp</strong>; close_pos <strong>0.63</strong>. Structure: bounce day with volume confirmation inside a choppy but rising DMA stack; recent swing high <strong>2,101</strong> (18 Sep), nearby supply <strong>1,990–2,010</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limit entry</td>
+<td><strong>1,959</strong></td>
+</tr>
+<tr>
+<td>Stop (~1%)</td>
+<td><strong>1,939</strong></td>
+</tr>
+<tr>
+<td>Target (realistic, fixed after gap)</td>
+<td><strong>1,995 – 2,010</strong></td>
+</tr>
+<tr>
+<td>R:R</td>
+<td><strong>~1.8 : 1 to ~2.5 : 1</strong></td>
+</tr>
+<tr>
+<td>Shares @ ₹150 risk</td>
+<td><strong>~7</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reason + source:</strong> Clean quality midcap pharma still above rising 20/50 with strong RS and above-average volume on a weak Nifty day; targets sit at the recent supply band with room so a small gap does not erase R:R. Yahoo EOD 29 Sep; Screener fundamentals.</p>
+<p><strong>Cancel at open:</strong> Gap open <strong>≥1,979</strong> (≥1% above entry); open <strong>≤1,939</strong>; gap that pushes entry to/above target; or fails to hold <strong>1,945</strong> in the first 15–30 min with Nifty still selling.</p>
+<hr />
+<h3 id="2-lalpathlab-nse-secondary">2) LALPATHLAB (NSE) — SECONDARY</h3>
+<p><strong>Fundamental (Screener.in, as of Tue 29 close ₹1,950):</strong><br />
+ROE <strong>22.3%</strong>, ROCE <strong>28.0%</strong>; <strong>almost debt-free</strong>; sales TTM <strong>+14%</strong>, profit TTM <strong>+10%</strong>; mcap <strong>₹32,746 Cr</strong>; promoter <strong>~53%</strong>. Screener notes rich P/B (~13×) and modest 5Y sales growth (~12%). Results due <strong>4 Nov 2026</strong> (not a near-term event for Wed).</p>
+<p><strong>Technical setup (Tue 29 Sep EOD — Yahoo LALPATHLAB.NS):</strong><br />
+O <strong>1,943.60</strong> / H <strong>1,971.40</strong> / L <strong>1,930.60</strong> / C <strong>1,950.40</strong> (+0.43%); vol <strong>4.01L</strong> vs ~20d avg <strong>~3.14L</strong> (<strong>~1.28×</strong> — just under the 1.3× preference). Above <strong>rising</strong> 20-DMA <strong>~1,919</strong> and <strong>rising</strong> 50-DMA <strong>~1,900</strong>; RSI(14) <strong>~59</strong>; 20d RS vs Nifty <strong>~+8.0 pp</strong>; close_pos <strong>0.49</strong> (mid-range — weaker than primary). Structure: orderly hold above rising DMAs; nearby resistance <strong>1,985–1,995</strong> (25 Sep high zone), swing high <strong>2,039</strong> (16 Sep).</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limit entry</td>
+<td><strong>1,950</strong></td>
+</tr>
+<tr>
+<td>Stop (~1%)</td>
+<td><strong>1,931</strong></td>
+</tr>
+<tr>
+<td>Target (realistic, fixed after gap)</td>
+<td><strong>1,985 – 1,995</strong></td>
+</tr>
+<tr>
+<td>R:R</td>
+<td><strong>~1.8 : 1 to ~2.4 : 1</strong></td>
+</tr>
+<tr>
+<td>Shares @ ₹150 risk</td>
+<td><strong>~7</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reason + source:</strong> Quality diagnostics name with rising DMAs and positive RS; volume and close position are only average, so secondary. Yahoo EOD 29 Sep; Screener fundamentals.</p>
+<p><strong>Cancel at open:</strong> Gap open <strong>≥1,970</strong>; open <strong>≤1,931</strong>; or fails <strong>1,935</strong> early with Nifty still selling.</p>
+<hr />
+<h2 id="3-rejects-considered">3) REJECTS (considered)</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Why rejected (1 line)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ZYDUSLIFE</strong></td>
+<td>Hit Tue target then closed at day low (close_pos 0) on 1.72× vol — distribution after the win; not re-chased.</td>
+</tr>
+<tr>
+<td><strong>DIVISLAB</strong></td>
+<td>Closed at day low; price_fit false (only 1 share).</td>
+</tr>
+<tr>
+<td><strong>LAURUSLABS</strong></td>
+<td>DMA/RS pass and last-year ROE 18% OK, but closed at day low (close_pos 0); 3Y ROE only ~10%.</td>
+</tr>
+<tr>
+<td><strong>SONACOMS</strong></td>
+<td>Tech pass (RS+, vol 2.2×) but Screener ROE <strong>11.3%</strong> / ROCE <strong>14.2%</strong> fail ≥15% quality.</td>
+</tr>
+<tr>
+<td><strong>AUROPHARMA</strong></td>
+<td>Above rising DMAs but Screener ROE/ROCE still fail quality (prior reject).</td>
+</tr>
+<tr>
+<td><strong>GLENMARK</strong></td>
+<td>Strong close/vol but <strong>20-DMA not rising</strong>.</td>
+</tr>
+<tr>
+<td><strong>DRREDDY / MANKIND</strong></td>
+<td>Soft DMA slopes and/or ROE/ROCE under the gate.</td>
+</tr>
+<tr>
+<td><strong>APOLLOHOSP</strong></td>
+<td>Below both DMAs; 50-DMA not rising.</td>
+</tr>
+<tr>
+<td><strong>HINDZINC / OFSS / BSE / POLYCAB</strong></td>
+<td>Still below rising-DMA stack / weak RSI.</td>
+</tr>
+<tr>
+<td><strong>COALINDIA</strong></td>
+<td>Above 20/50 but <strong>50-DMA not rising</strong>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-desk-paste-copy-paste-ready">4) Desk paste (copy-paste ready)</h2>
+<pre><code>Intraday desk — planned levels from Tue 29 Sep EOD for Wed 30 Sep session (not live)
+
+Market: Nifty 22,716 (−0.28%). Weak tape; prefer RS. Fri 2 Oct Gandhi Jayanti closed.
+If only one slot → EMCURE.
+
+1) EMCURE — PRIMARY
+Entry 1959 | Stop 1939 | Target 1995–2010 | R:R ~1.8–2.5 | ~7 sh @ ₹150 risk
+ROE 20.1% ROCE 24% | Tue C 1959 H 1987 vol ~1.67x | above rising 20/50 RSI~53 RS+11.7
+Cancel: gap ≥1979 or open ≤1939 or fails 1945 early
+
+2) LALPATHLAB — SECONDARY
+Entry 1950 | Stop 1931 | Target 1985–1995 | R:R ~1.8–2.4 | ~7 sh
+ROE 22.3% ROCE 28% almost debt-free | Tue C 1950 close mid-range vol ~1.28x | rising 20/50 RSI~59 RS+8
+Cancel: gap ≥1970 or open ≤1931 or fails 1935 early
+
+No 3rd — ZYDUSLIFE day-low after target; LAURUSLABS day-low; SONACOMS ROE/ROCE; AUROPHARMA funda; most large caps still below rising DMAs.
+Real Stock Trader sizes / proposes; the owner yes required. No live data.
+</code></pre></main>
+<footer class="wrap">Updated Sat 03 Oct 2026, 10:48 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+</body></html>

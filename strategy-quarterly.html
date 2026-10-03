@@ -1,0 +1,102 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quarterly strategy · Equity desk</title><meta name="description" content="An open notebook on Indian stock picking: strategy, experiments and results.">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><div class="wrap"><a class="brand" href="index.html">equity.curiosta.com</a><nav><a href="index.html">Home</a><a href="strategy-quarterly.html" class=on>Quarterly strategy</a><a href="strategy-intraday.html">Intraday strategy</a><a href="journal/index.html">Journal</a><a href="experiments.html">Experiments</a><a href="code.html">Code</a><a href="changelog.html">Changelog</a></nav></div></header>
+<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="indian-equities-quarterly-fundamental-screen">Indian equities quarterly fundamental screen</h1>
+<p>A living playbook for the quarterly fundamental screen, the entry discipline that follows it, and a log of the positions it produced. <strong>Update it after every rescreen</strong>: refresh the pick log, and put any rule change under Lessons.</p>
+<h2 id="ground-rules">Ground rules</h2>
+<ul>
+<li>Never invent numbers. Cite the source for every figure: Screener.in for fundamentals; Yahoo Finance India, NSE or Moneycontrol for prices; named news outlets for catalysts.</li>
+<li>Say how fresh the data is.</li>
+<li>The analyst places no trades. Output goes to the paper trader (or the owner), who sizes the position and asks the owner for an explicit yes.</li>
+<li>Write numbers-first in plain English, using ₹ with NSE/BSE tickers.</li>
+<li>Fewer names beat forced picks. An empty PICK list is a valid result.</li>
+</ul>
+<h2 id="when">When</h2>
+<p>Just after each results deadline, so companies are judged on fresh quarterly numbers. Companies must report within 45 days of quarter end (60 for Q4), which puts the deadlines around 14 Aug, 14 Nov, 14 Feb and 30 May. Run it a few days after each one (for example, 17 Nov). A screen run weeks later is working from old news. Say so, and treat its picks as WATCH until the trend gate passes.</p>
+<h2 id="default-query-apply-exactly-unless-the-owner-changes-it">Default query (apply exactly unless the owner changes it)</h2>
+<pre><code>EPS latest quarter &gt; 1.18 * EPS same quarter last year AND
+EPS latest quarter &gt; EPS preceding quarter AND
+EPS &gt; 1.25 * EPS preceding year AND
+YOY Quarterly sales growth &gt; 25 AND
+Profit growth &gt; 25 AND
+Sales growth &gt; 25 AND
+YOY Quarterly profit growth &gt; 25 AND
+Return on equity &gt; 17 AND
+Market Capitalization &gt; 200 AND
+Return on capital employed &gt; 30
+</code></pre>
+<p>Screener's custom query needs a logged-in session. CSV export needs Premium, so read the results table page by page.</p>
+<h2 id="checks-for-each-match">Checks for each match</h2>
+<ol>
+<li>Revenue and profit trend: quarterly and 3–5 years. Is the growth one-off or repeatable?</li>
+<li>Operating and net margins: are they stable or expanding?</li>
+<li>ROE and ROCE trend over 3–5 years, not just the latest figure.</li>
+<li>Debt: debt-to-equity, the borrowings trend, interest cover.</li>
+<li>Promoter holding level and trend, plus any pledging.</li>
+<li>Valuation: P/E against its own history and against peers, plus market cap versus the size of the business.</li>
+<li>Red flags: governance issues, auditor remarks, related-party deals, cash flow far below profit, SME or illiquid listings.</li>
+<li><strong>Parent and promoter risk</strong> (added 29 Sep 2026). If a parent company owns most of the stock, check the parent's recent news: stake sales, offers for sale, block deals, fund-raising needs, and contract or legal trouble that flows down to the subsidiary. Examples are Oracle for OFSS and Vedanta for HINDZINC. A live overhang means WATCH, not PICK.</li>
+</ol>
+<h2 id="before-a-pick-becomes-a-position-added-29-sep-2026">Before a PICK becomes a position (added 29 Sep 2026)</h2>
+<p>A good business can still be a bad entry. Check each of these with <code>scripts/eod_tech.py</code> and the news before handing a PICK to the paper trader:
+- <strong>Trend gate:</strong> the last close is above a rising 50-DMA (<code>above_50</code> and <code>dma50_rising</code> both true). If it fails, the name stays WATCH and gets rechecked weekly until it passes.
+- <strong>No buying straight after a news drop:</strong> if the stock fell 5% or more in one session on news, wait at least 5 sessions and until the cause is understood, then re-run the gate.
+- <strong>Market check:</strong> if the Nifty is below a falling 50-DMA, open at half the normal size and keep the rest in cash.
+- <strong>Spread the money:</strong> hold 4–6 names, with at most 25% of the book in any one name, and no more than one name from the same sector or group. If only one or two names pass, invest only their share and hold the rest in cash rather than filling the book.
+- <strong>Judge results against the Nifty</strong> over the same dates, not just on absolute P&amp;L.</p>
+<h2 id="output">Output</h2>
+<p>A ranked PICK, WATCH and PASS list. Each name gets:
+- 3–5 key numbers and a one-line thesis.
+- Its main risks and the trend-gate result.
+- The reason it's a pick, a watch or a pass.</p>
+<p>Add PICKs to the Screener watchlist. For names already held, recheck the thesis and say hold, watch or escalate.</p>
+<p><strong>How to use daily moves:</strong> a 1-day price change only means something happened. It is not a quality score, so it feeds the thesis and risk checks (and the news-drop wait) and never the ranking.</p>
+<h2 id="script">Script</h2>
+<p><code>scripts/eod_tech.py</code> in the <code>ind-stock-picker</code> repo pulls daily Yahoo data (use <code>^NSEI</code> for the Nifty). It gives:
+- The trend gate (<code>above_50</code>, <code>dma50_rising</code>).
+- The DMAs and RSI.
+- 20-day relative strength against the Nifty (<code>rs20_pp</code>).</p>
+<p><code>stale: true</code> means Yahoo is missing the latest bar, so verify against NSE.</p>
+<h2 id="related">Related</h2>
+<p>Next-day intraday candidates moved to their own skill, "NSE next-day intraday candidates", on 30 Sep 2026. This screen can still supply a Screener quality check on any intraday name when asked.</p>
+<h2 id="quarterly-pick-log-paper-book-add-a-row-per-position-and-update-it-at-each-rescreen">Quarterly pick log (paper book; add a row per position and update it at each rescreen)</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Opened</th>
+<th>Entry / stop</th>
+<th>Result so far (29 Sep 2026 close)</th>
+<th>What went wrong or right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HINDZINC</td>
+<td>about 21–22 Sep 2026, 50% of ₹10L book</td>
+<td>₹592.35 / ₹544.96 (8% trailing, on close)</td>
+<td>₹563.30, −4.9% (about −₹24.5k). The Nifty fell about 3% over the same week.</td>
+<td>Bought right at a flattening 20-DMA while the Nifty was below a falling 50-DMA (seven weekly losses in a row). By 28 Sep it was below both DMAs. Too big a share of the book.</td>
+</tr>
+<tr>
+<td>OFSS</td>
+<td>about 21–22 Sep 2026, 50% of ₹10L book</td>
+<td>₹11,101 / ₹10,212.92 (8% trailing, on close)</td>
+<td>₹10,406, −6.3% (about −₹31.3k). It lagged the Nifty by about 9 points over 20 sessions.</td>
+<td>Bought the day after it fell from ₹11,896 (18 Sep close) to ₹10,911 (21 Sep), below both DMAs. The parent-company risk (Oracle's force-majeure notice on Blue Owl's Project Jupiter, reported 25 Sep) was never checked. Too big a share of the book.</td>
+</tr>
+</tbody>
+</table>
+<p>Both are strong businesses on Screener numbers, so the screen itself wasn't the main problem. The loss came from entry timing, putting half the book in each name, and not checking the parent companies. The screen was also run on 21 Sep, about five weeks after the June-quarter results deadline.</p>
+<p>A test book that bought both at the 1 Jul close with the same −8% trailing stop would be +2.5% against the Nifty's −5.4%. That supports the picks and points to timing and sizing as the problem.</p>
+<h2 id="lessons-and-rule-changes-dated">Lessons and rule changes (dated)</h2>
+<ul>
+<li>29 Sep 2026 (after the HINDZINC/OFSS paper losses): added the trend gate, the 5-session wait after a news drop, half size when the Nifty is below a falling 50-DMA, 4–6 names capped at 25% each, and the parent/promoter risk check. Results are now judged against the Nifty. Run the screen within days of the results deadline, not weeks after.</li>
+<li>30 Sep 2026: intraday work split out to its own skill and bot. This skill now covers only the quarterly screen.</li>
+</ul>
+<h2 id="improving-this-skill">Improving this skill</h2>
+<p>After each quarterly rescreen, update the pick log for every held name with its return against the Nifty and what went right or wrong. Change a rule only when several positions or quarters support the change, and date it under Lessons.</p></main>
+<footer class="wrap">Updated Sat 03 Oct 2026, 10:48 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+</body></html>

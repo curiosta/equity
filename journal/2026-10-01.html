@@ -1,0 +1,144 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Thu 01 Oct 2026 · Equity desk</title><meta name="description" content="An open notebook on Indian stock picking: strategy, experiments and results.">
+<link rel="stylesheet" href="../style.css"></head><body>
+<header><div class="wrap"><a class="brand" href="../index.html">equity.curiosta.com</a><nav><a href="../index.html">Home</a><a href="../strategy-quarterly.html">Quarterly strategy</a><a href="../strategy-intraday.html">Intraday strategy</a><a href="../journal/index.html" class=on>Journal</a><a href="../experiments.html">Experiments</a><a href="../code.html">Code</a><a href="../changelog.html">Changelog</a></nav></div></header>
+<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="nse-intraday-candidates-thu-1-oct-2026">NSE Intraday Candidates — Thu 1 Oct 2026</h1>
+<p><strong>Levels planned from Wed 30 Sep 2026 EOD only (not live)</strong></p>
+<h2 id="1-confirmation-data-used">1) Confirmation — data used</h2>
+<ul>
+<li><strong>Session bar date:</strong> Wed 30 Sep 2026 (Yahoo Finance India <code>.NS</code> / <code>^NSEI</code> daily + 15m bars via <code>scripts/eod_tech.py</code>; Google Finance DRREDDY:NSE close ₹1,232.70 aligns with Yahoo ₹1,233.00 / Moneycontrol last ₹1,233).</li>
+<li><strong>Index context:</strong> Nifty 50 closed <strong>22,620.45 (−0.42% / −95.75 from Tue 22,716.20)</strong>. Open 22,665 (−0.23% gap vs prior close) — <strong>not</strong> a sharp gap-lower skip day. <strong>20-DMA ~23,343.55 (falling)</strong>; <strong>50-DMA ~23,901.58 (falling)</strong>; close below both. 20d return <strong>≈ −6.0%</strong>.</li>
+<li><strong>Weak market:</strong> <strong>YES</strong> → at most <strong>2</strong> names, and only those clearly beating the index (~+5 rs20_pp or more). Prefer fewer over forcing a second.</li>
+<li><strong>Technicals / noise:</strong> <code>intraday/data/2026-10-01/eod_tech.json</code> (merged scan batches; no <code>stale</code> on finalist).</li>
+<li><strong>Fundamentals:</strong> Screener.in consolidated (ROE/ROCE as tie-breaker / risk note only — universe widened 30 Sep 2026).</li>
+<li><strong>Calendar:</strong> <strong>Thu 1 Oct 2026 is a normal NSE trading day.</strong> <strong>Fri 2 Oct 2026 is Mahatma Gandhi Jayanti (closed)</strong> — next open after Thu is Mon 5 Oct. Real Stock Trader trades Mon–Thu, so Thu is in scope. (Sources: NSE / Zerodha holiday calendar 2026; Goodreturns / NDTV Profit Oct 2026 notes.)</li>
+</ul>
+<p>Market bias for Thu: still risk-off with Nifty below a falling 50-DMA. Only stock-specific RS with clean opening-range-vs-stop. Cancel quickly if the index gaps hard lower into the long weekend.</p>
+<p><strong>Only 1 name</strong> clears rising 20/50-DMA + RS ≥ ~+5 + RSI band + volume/close-position + <strong>noise</strong> (<code>or30_vs_stop</code> ≤ 1.0). Secondaries that passed momentum failed Step 3b (no realistic wider-stop target). Empty second slot is intentional.</p>
+<p>Wed 30 outcome already logged in skill (EMCURE stopped out, −₹132 net). Running tally after 2 real trades: about +₹2 net. Outcome already in skill log.</p>
+<hr />
+<h2 id="2-ranked-candidates">2) Ranked CANDIDATES</h2>
+<h3 id="1-drreddy-nse-primary">1) DRREDDY (NSE) — PRIMARY</h3>
+<p><strong>Quality / risk note (tie-breaker, not a gate):</strong> Screener.in consolidated shows last-year <strong>ROE ~11.2%</strong> / <strong>ROCE ~13.0%</strong> (soft vs older ≥15% gate); company FY26 release cites RoCE <strong>15.8%</strong> and <strong>net cash</strong> (net debt/equity −0.09). Q1 FY27 profit miss is known; Citi upgrade to Buy / TP ₹1,450 reported 29 Sep (CNBC-TV18 / Ad-hoc). No live governance scandal found. Liquid Nifty 50 / F&amp;O — ₹15k ticket fills easily.</p>
+<p><strong>Technical setup (Wed 30 Sep EOD — Yahoo DRREDDY.NS):</strong><br />
+O <strong>1,242.20</strong> / H <strong>1,244.60</strong> / L <strong>1,214.20</strong> / C <strong>1,233.00</strong> (−1.51% vs Tue 1,251.90); vol <strong>40.3L</strong> vs ~20d avg <strong>~16.4L</strong> (<strong>~2.46×</strong>). Above <strong>rising</strong> 20-DMA <strong>~1,179.65</strong> and <strong>rising</strong> 50-DMA <strong>~1,175.44</strong>; RSI(14) <strong>~62.7</strong>; 20d RS vs Nifty <strong>~+12.0 pp</strong>; close_pos <strong>0.62</strong>. Structure: orderly pullback inside HH-HL uptrend after Tue’s thrust to H <strong>1,252.80</strong>; still well above rising DMAs with heavy volume.</p>
+<p><strong>Noise:</strong> <code>or30_med</code> <strong>10.10</strong> (n=20); stop distance <strong>12.00</strong> → <code>or30_vs_stop</code> <strong>0.84</strong>; <code>atr14_pct</code> <strong>1.94</strong>; <code>noise_flag</code> <strong>false</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limit entry</td>
+<td><strong>1,233</strong></td>
+</tr>
+<tr>
+<td>Stop (~1%)</td>
+<td><strong>1,221</strong></td>
+</tr>
+<tr>
+<td>Target (realistic, fixed after gap)</td>
+<td><strong>1,255</strong></td>
+</tr>
+<tr>
+<td>R:R</td>
+<td><strong>~1.83 : 1</strong> (risk ₹12 / reward ₹22)</td>
+</tr>
+<tr>
+<td>Shares @ ₹150 risk (Step 2: ÷ (entry − (stop − ₹4)))</td>
+<td><strong>9</strong> (notional ~₹11,097)</td>
+</tr>
+<tr>
+<td><strong>1% skip</strong> (entry × 1.01)</td>
+<td><strong>1,245</strong></td>
+</tr>
+<tr>
+<td><strong>1.5R skip</strong> (target − 1.5R)</td>
+<td><strong>1,237</strong></td>
+</tr>
+<tr>
+<td><strong>Weak-hold</strong> (first 15–30 min)</td>
+<td><strong>1,225</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reason + source:</strong> Clearest RS name still above rising 20/50 on a weak Nifty tape, with volume confirmation and opening-range noise <strong>under</strong> the stop (unlike Wed’s EMCURE). Target retests/slightly clears Tue high 1,252.80 with room above bare 1.5R (1,251). Yahoo EOD 30 Sep; Google Finance cross-check; Screener / company FY26 release for funda note; Citi news 29 Sep.</p>
+<p><strong>Cancel at open:</strong> Gap open <strong>≥1,245</strong> (1% chase); open <strong>≥1,237</strong> leaving &lt;1.5R to fixed target; open <strong>≤1,221</strong>; or fails to hold <strong>1,225</strong> early with Nifty still selling.</p>
+<hr />
+<h2 id="3-rejects-considered">3) REJECTS (considered)</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Why rejected (1 line)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SONACOMS</strong></td>
+<td>Tech/RS pass (RS +11.5, rising DMAs) but <code>or30_vs_stop</code> <strong>1.20</strong> / atr% <strong>2.68</strong>; wider stop (~820) needs target ≥~851 — above 3mo high <strong>844</strong>. Drop.</td>
+</tr>
+<tr>
+<td><strong>LALPATHLAB</strong></td>
+<td>Strong close (cpos 0.95, vol 1.7×, RS +9.1) but <code>or30_vs_stop</code> <strong>1.25</strong> / atr% <strong>3.0</strong> after a 129-pt day; wider stop needs target ≥~2,031 (only thin 16 Sep spike 2,038.6) — chase into long weekend. Drop.</td>
+</tr>
+<tr>
+<td><strong>LAURUSLABS</strong></td>
+<td>Rising DMAs / RS +11.6 but vol <strong>0.84×</strong>, mid close_pos, <code>or30_vs_stop</code> <strong>1.32</strong>.</td>
+</tr>
+<tr>
+<td><strong>ZYDUSLIFE</strong></td>
+<td>Closed near day low (cpos 0.21); RSI 51.5; noise 1.12 — not a fresh long.</td>
+</tr>
+<tr>
+<td><strong>EMCURE</strong></td>
+<td>Wed stop-out; now <strong>below 20-DMA</strong>, vol 0.34×, noise 1.34 — do not re-chase.</td>
+</tr>
+<tr>
+<td><strong>ADANIPORTS</strong></td>
+<td>RS +12.9 / vol 1.63× but <strong>50-DMA not rising</strong>; borderline noise 1.02.</td>
+</tr>
+<tr>
+<td><strong>MANKIND</strong></td>
+<td>RS +10 / vol 2.78× but <strong>50-DMA not rising</strong>; noise 1.04; mid close.</td>
+</tr>
+<tr>
+<td><strong>AJANTPHARM</strong></td>
+<td>RS +9.4 / huge vol but close_pos 0.28, noise 1.26, price ~₹3,621 (tight price_fit).</td>
+</tr>
+<tr>
+<td><strong>COALINDIA / MOTHERSON</strong></td>
+<td>Soft DMA slope and/or RSI / close_pos; not clean weak-market RS longs.</td>
+</tr>
+<tr>
+<td><strong>Most Nifty large caps</strong></td>
+<td>Below falling 20/50 stack with Nifty (banks, IT, autos, metals) — no rising-DMA + RS edge.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-one-slot-recommendation">4) One-slot recommendation</h2>
+<p>If only one slot → <strong>DRREDDY</strong>. No secondary listed.</p>
+<hr />
+<h2 id="5-desk-paste-copy-paste-ready">5) Desk paste (copy-paste ready)</h2>
+<pre><code>Intraday desk — planned levels from Wed 30 Sep EOD for Thu 1 Oct session (not live)
+
+Market: Nifty 22,620 (−0.42%), below falling 50-DMA (~23,902) → WEAK; max 2 names, RS-only. Fri 2 Oct Gandhi Jayanti closed (next open Mon 5 Oct).
+If only one slot → DRREDDY. No clean secondary (noise / no wider-stop target).
+
+1) DRREDDY — PRIMARY
+Entry 1233 | Stop 1221 | Target 1255 | R:R ~1.83 | 9 sh @ ₹150 risk (Step 2 + ₹4 buf)
+Wed C 1233 H 1244.6 L 1214.2 vol ~2.46x | above rising 20/50 RSI~63 RS+12.0
+Noise: or30_med 10.1 / or30_vs_stop 0.84 / atr14% 1.94 (clean)
+Skip: gap ≥1245 (1%) or open ≥1237 (&lt;1.5R to tgt) or open ≤1221 | weak-hold 1225 early
+Funda note: Screener ROE/ROCE soft (~11/13); liquid Nifty50; no live scandal; Citi Buy note 29 Sep
+
+Wed EMCURE outcome already in skill (−₹132 net). Tally ~+₹2 after 2 real trades.
+Real Stock Trader sizes / proposes; the owner yes required evening before. No live data.
+</code></pre></main>
+<footer class="wrap">Updated Sat 03 Oct 2026, 10:48 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+</body></html>
