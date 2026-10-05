@@ -5,6 +5,64 @@
 <header><div class="wrap"><a class="brand" href="index.html">equity.curiosta.com</a><nav><a href="index.html">Home</a><a href="strategy-quarterly.html">Quarterly strategy</a><a href="strategy-intraday.html">Intraday strategy</a><a href="journal/index.html">Journal</a><a href="experiments.html" class=on>Experiments</a><a href="code.html">Code</a><a href="changelog.html">Changelog</a></nav></div></header>
 <main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="experiments">Experiments</h1>
 <p>We write down every test, including the ones that didn't work. Each one says what was tested, on what data, and what we did about it. Nothing here is a promise of future returns.</p>
+<h2 id="intraday-shorts-backtest-58-sessions-5-oct-2026">Intraday shorts backtest, 58 sessions (5 Oct 2026)</h2>
+<p><strong>Question:</strong> when the Nifty is below a falling 50-day average, do the mirror-image short versions of our intraday setups make money after costs?</p>
+<p><strong>Data:</strong> the same Yahoo Finance 5-minute bars, 68-name universe, sizing (₹150 risk, at most ₹15,000 notional), charges and ₹1 stop slippage as the long backtest of 3 Oct. The main filter was the 19 sessions where the Nifty's prior close was below a falling 50-day average.</p>
+<table>
+<thead>
+<tr>
+<th>Setup (2R target), weak days only</th>
+<th>Trades</th>
+<th>Net ₹ per trade</th>
+<th>90% range (bootstrap)</th>
+<th>Long version, same days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opening-range breakdown, 15 min</td>
+<td>675</td>
+<td>−₹8.71</td>
+<td>−₹14.32 to −₹3.17</td>
+<td>−₹20.78</td>
+</tr>
+<tr>
+<td>Opening-range breakdown, 30 min</td>
+<td>510</td>
+<td>−₹7.16</td>
+<td>−₹13.13 to −₹1.15</td>
+<td>−₹16.89</td>
+</tr>
+<tr>
+<td>VWAP pullback short</td>
+<td>199</td>
+<td>−₹23.80</td>
+<td>−₹29.73 to −₹17.79</td>
+<td>−₹27.24</td>
+</tr>
+<tr>
+<td>Previous-day-low breakdown</td>
+<td>651</td>
+<td>−₹2.13</td>
+<td>−₹8.29 to +₹4.14</td>
+<td>−₹21.28</td>
+</tr>
+<tr>
+<td>Gap-and-fade</td>
+<td>56</td>
+<td>−₹27.33</td>
+<td>−₹47.30 to −₹7.18</td>
+<td>−₹35.25</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What we learned:</strong>
+- No short setup had a positive edge after costs, on weak days or over all 58 sessions.
+- On weak days every short lost less than its long version. That supports "don't buy breakouts when the Nifty is below a falling 50-day average", but only as a relative statement, not as a reason to go short.
+- The previous-day-low breakdown came closest to breakeven on weak days: slightly positive before charges, and its 90% range crosses zero. It's the only one worth a forward paper test on new data, with the rules frozen.
+- Shorts did worse when the Nifty was above its 50-day average, and the VWAP and gap setups stayed clearly negative everywhere.</p>
+<p><strong>Caveats:</strong> only 19 weak sessions, and gap-and-fade had just 56 trades. Short-selling availability, borrow refusals and circuit freezes weren't modelled. When a stop and a target fell in the same 5-minute bar, the trade was counted as a stop.</p>
+<p><strong>Next:</strong> paper-test only the previous-day-low breakdown on weak days, unchanged, for about 200 trades or 60 more sessions, and get at least a year of intraday history before any decision.</p>
 <h2 id="paper-portfolio-replay-buy-on-1-jul-instead-of-21-sep-3-oct-2026">Paper portfolio replay: buy on 1 Jul instead of 21 Sep (3 Oct 2026)</h2>
 <p><strong>Question:</strong> were the HINDZINC and OFSS picks bad, or was the timing bad?</p>
 <p><strong>Test:</strong> a separate test book bought both names at the 1 Jul 2026 close with the same −8% trailing stop, then compared the result with the Nifty. The live paper book was left untouched.</p>
@@ -130,5 +188,5 @@
 </script>
 </section>
 
-<footer class="wrap">Updated Sun 04 Oct 2026, 00:15 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+<footer class="wrap">Updated Mon 05 Oct 2026, 20:28 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
 </body></html>

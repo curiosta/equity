@@ -1,0 +1,157 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Mon 05 Oct 2026 · Equity desk</title><meta name="description" content="An open notebook on Indian stock picking: strategy, experiments and results.">
+<link rel="stylesheet" href="../style.css"></head><body>
+<header><div class="wrap"><a class="brand" href="../index.html">equity.curiosta.com</a><nav><a href="../index.html">Home</a><a href="../strategy-quarterly.html">Quarterly strategy</a><a href="../strategy-intraday.html">Intraday strategy</a><a href="../journal/index.html" class=on>Journal</a><a href="../experiments.html">Experiments</a><a href="../code.html">Code</a><a href="../changelog.html">Changelog</a></nav></div></header>
+<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="nse-intraday-candidates-mon-5-oct-2026">NSE Intraday Candidates — Mon 5 Oct 2026</h1>
+<p><strong>confirmation entry · Levels planned from Thu 1 Oct 2026 EOD only (not live)</strong></p>
+<h2 id="1-confirmation-data-used">1) Confirmation — data used</h2>
+<ul>
+<li><strong>Session bar date:</strong> Thu 1 Oct 2026 (Yahoo Finance India <code>.NS</code> / <code>^NSEI</code> daily + 15m bars via <code>scripts/eod_tech.py</code>). Fri 2 Oct was Gandhi Jayanti (closed); Sat/Sun weekend — so Thu is the last completed EOD for Mon’s session.</li>
+<li><strong>Index context:</strong> Nifty 50 closed <strong>22,421.95 (−0.88% / −198.50 from Wed 22,620.45)</strong>. Open 22,543.70 (−0.34% gap vs prior close); low <strong>22,217.30</strong>. <strong>20-DMA ~23,268.93 (falling)</strong>; <strong>50-DMA ~23,870.10 (falling)</strong>; close below both. 20d return <strong>≈ −6.24%</strong>.</li>
+<li><strong>Weak market:</strong> <strong>YES</strong> → at most <strong>2</strong> names, and only those clearly beating the index (~+5 rs20_pp or more). Prefer fewer over forcing a second.</li>
+<li><strong>Confirmation entry (from Mon 5 Oct while weak):</strong> no buy at the open. At ~09:30, buy only if price ≥ entry <strong>and</strong> the low since 09:15 has held above weak-hold, with a limit no higher than the 1.5R skip. Otherwise skip. Trader <code>entry_mode</code> = <code>"confirmation"</code>. Prefer ~1.8R+ reward.</li>
+<li><strong>Technicals / noise:</strong> <code>intraday/data/2026-10-05/eod_tech.json</code> (merged scan batches; 95 unique symbols; no <code>stale</code> on finalist). Universe = kept F&amp;O+Midcap150 names from <code>universe.csv</code> (last_date 2026-10-01) plus liquid RS extras that cleared Step 1 price/turnover.</li>
+<li><strong>Fundamentals:</strong> Screener.in consolidated (ROE/ROCE as tie-breaker / risk note only).</li>
+<li><strong>Calendar:</strong> <strong>Mon 5 Oct 2026 is a normal NSE trading day</strong> (Real Stock Trader Mon–Thu). F&amp;O ban for Mon 5 (Quantsapp / NSE file of 1 Oct): AMBUJACEM, BANDHANBNK, SAIL — none of our names.</li>
+</ul>
+<p>Market bias for Mon: still risk-off with Nifty below a falling 50-DMA. Only stock-specific RS with clean (or owner-approved wider) opening-range-vs-stop. Confirmation entry applies.</p>
+<p><strong>Scan funnel (Thu 1 Oct EOD):</strong> 95 scanned → 5 above rising 20+50 DMA → 5 with rs20_pp ≥ +5 → 2 in RSI 55–70 + price fit → <strong>0</strong> with <code>or30_vs_stop</code> ≤ 1.0 on a 1% stop. One of those two (LAURUSLABS) has a realistic wider-stop + ≥1.5× wider-risk target; the other (LALPATHLAB) does not. Empty second slot is intentional.</p>
+<p>Thu 1 Oct DRREDDY outcome already logged in skill (stopped out, −₹45.90 gross / ~−₹58 net est.). Running tally after 3 real trades ≈ −₹56 net.</p>
+<hr />
+<h2 id="2-ranked-candidates">2) Ranked CANDIDATES</h2>
+<h3 id="1-lauruslabs-nse-primary-wider-stop-noise-owners-call">1) LAURUSLABS (NSE) — PRIMARY (wider stop / noise — owner’s call)</h3>
+<p><strong>Quality / risk note (tie-breaker, not a gate):</strong> Screener.in consolidated: last-year <strong>ROE ~18.3%</strong> / <strong>ROCE ~17.8%</strong>; stock P/E elevated (~98); 3Y ROE soft (~10%). Q1 FY27 already released 24 Jul 2026 (rev ₹2,026 Cr, +29% YoY) — <strong>no Mon 5 Oct results</strong> found. Not on F&amp;O ban / no live governance scandal found. Liquid Midcap / F&amp;O — ₹15k ticket fills easily.</p>
+<p><strong>Technical setup (Thu 1 Oct EOD — Yahoo LAURUSLABS.NS):</strong><br />
+O <strong>1,973.60</strong> / H <strong>2,006.90</strong> / L <strong>1,952.10</strong> / C <strong>1,984.00</strong>; vol <strong>~0.90×</strong> 20d avg (soft vs ~1.3× preference); close_pos <strong>0.58</strong>. Above <strong>rising</strong> 20-DMA <strong>~1,963.15</strong> and <strong>rising</strong> 50-DMA <strong>~1,881.41</strong>; RSI(14) <strong>~58.4</strong>; 20d RS vs Nifty <strong>~+12.3 pp</strong>. Structure: orderly hold above rising DMAs after Sep 24 thrust to H <strong>2,055.30</strong>; still the clearest Gate1+RS+RSI name on the tape.</p>
+<p><strong>Noise:</strong> <code>or30_med</code> <strong>26.05</strong> (n=20); bare 1% stop distance <strong>~19.84</strong> → <code>or30_vs_stop</code> <strong>1.31</strong>; <code>atr14_pct</code> <strong>2.36</strong>; <code>noise_flag</code> <strong>true</strong>. <strong>Offered with wider stop</strong> so <code>or30_vs_stop</code> ≈ <strong>1.00</strong> (borderline). Wider-stop risk + ₹4 buffer = ₹30 → min 1.5× target <strong>≥2,029</strong>; recent highs <strong>2,040 / 2,055.30</strong> sit above that. Soft volume is the main quality caveat.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limit entry</td>
+<td><strong>1,984</strong></td>
+</tr>
+<tr>
+<td>Stop (wider, ≈ or30)</td>
+<td><strong>1,958</strong></td>
+</tr>
+<tr>
+<td>Target (realistic, fixed after gap)</td>
+<td><strong>2,040</strong></td>
+</tr>
+<tr>
+<td>R:R</td>
+<td><strong>~2.15 : 1</strong> (risk ₹26 / reward ₹56)</td>
+</tr>
+<tr>
+<td>Shares @ ₹150 risk (Step 2: ÷ (entry − (stop − ₹4)))</td>
+<td><strong>5</strong> (notional ~₹9,920)</td>
+</tr>
+<tr>
+<td><strong>1% skip</strong> (entry × 1.01)</td>
+<td><strong>2,004</strong></td>
+</tr>
+<tr>
+<td><strong>1.5R skip</strong> (target − 1.5R)</td>
+<td><strong>2,001</strong></td>
+</tr>
+<tr>
+<td><strong>Weak-hold</strong> (first 15–30 min)</td>
+<td><strong>1,971</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reason + sources:</strong> Only Gate1–4 name with a realistic wider-stop target under Step 3b while Nifty is weak. RS +12.3 and RSI in band; confirmation-friendly ~2.15R to a level the stock has actually printed (5d/20d high cluster). Yahoo EOD 1 Oct; Screener.in ROE/ROCE; company Q1 FY27 release 24 Jul; Quantsapp F&amp;O ban for Mon 5.</p>
+<p><strong>Cancel / skip:</strong> Gap open <strong>≥2,004</strong> (1% chase); open <strong>≥2,001</strong> leaving &lt;1.5R to fixed target; open <strong>≤1,958</strong>; or at ~09:30 fails confirmation (price &lt; entry or session low since 09:15 ≤ <strong>1,971</strong>). Owner may also skip on soft volume / borderline noise.</p>
+<hr />
+<h2 id="3-rejects-considered">3) REJECTS (considered)</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Why rejected (1 line)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LALPATHLAB</strong></td>
+<td>Gate1+RS+RSI+vol pass (RS +10.2, RSI 67.6, vol 1.66×, cpos 0.75) but <code>or30_vs_stop</code> <strong>1.35</strong> / atr% <strong>3.08</strong>; wider or30 stop needs tgt ≥<strong>~2,052</strong> vs 60d high <strong>2,038.60</strong> (thin 16 Sep spike). Drop.</td>
+</tr>
+<tr>
+<td><strong>DRREDDY</strong></td>
+<td>Rising DMAs / RS +10.5 / clean noise 0.85 but RSI <strong>54.0</strong> (below band) and close_pos <strong>0.29</strong> after Thu stop-out — do not re-chase a weak close.</td>
+</tr>
+<tr>
+<td><strong>SONACOMS</strong></td>
+<td>Rising DMAs / RS +6.7 but RSI 50.9, mid close, <code>or30_vs_stop</code> <strong>1.24</strong> / atr% <strong>2.98</strong>; same wider-stop problem as prior brief.</td>
+</tr>
+<tr>
+<td><strong>AJANTPHARM</strong></td>
+<td>Rising DMAs / RS +7.8 but RSI 54.4, price <strong>~₹3,581</strong> (price_fit false), noise 1.28.</td>
+</tr>
+<tr>
+<td><strong>MANKIND</strong></td>
+<td>Strong RS +13.1 / RSI 62 / noise 0.98 but <strong>50-DMA not rising</strong> (flat = reject).</td>
+</tr>
+<tr>
+<td><strong>EMCURE</strong></td>
+<td>Below 20-DMA; RSI 51; vol 0.34×; noise 1.37 — do not re-chase prior stop-out.</td>
+</tr>
+<tr>
+<td><strong>VBL / PAGEIND / HDFCBANK / ADANIPORTS / AUROPHARMA / ZYDUSLIFE / COALINDIA</strong></td>
+<td>RS soft-to-strong but failed rising 20+50 stack and/or RSI / below DMA.</td>
+</tr>
+<tr>
+<td><strong>Most Nifty large caps</strong></td>
+<td>Below falling 20/50 stack with Nifty (banks, IT, autos, metals) — no rising-DMA + RS edge.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-one-slot-recommendation">4) One-slot recommendation</h2>
+<p>If only one slot → <strong>LAURUSLABS</strong> (wider-stop / confirmation; owner may skip on soft vol). No secondary listed.</p>
+<hr />
+<h2 id="5-desk-paste-copy-paste-ready">5) Desk paste (copy-paste ready)</h2>
+<pre><code>Intraday desk — confirmation entry · planned levels from Thu 1 Oct EOD for Mon 5 Oct session (not live)
+
+Market: Nifty 22,422 (−0.88%), below falling 50-DMA (~23,870) → WEAK; max 2 names, RS-only. Confirmation entry from Mon 5 (no open buy; ~09:30 hold weak-hold).
+If only one slot → LAURUSLABS (wider stop / noise — owner call). No clean secondary.
+
+1) LAURUSLABS — PRIMARY (wider stop)
+Entry 1984 | Stop 1958 (wider≈or30) | Target 2040 | R:R ~2.15 | 5 sh @ ₹150 risk (Step 2 + ₹4 buf)
+Thu C 1984 H 2006.9 L 1952.1 vol ~0.90x | above rising 20/50 RSI~58 RS+12.3
+Noise: or30_med 26.05 / or30_vs_stop 1.31 on 1% stop → wider stop makes ~1.00 (borderline) / atr14% 2.36
+Skip: gap ≥2004 (1%) or open ≥2001 (&lt;1.5R to tgt) or open ≤1958 | weak-hold 1971 | confirm ~09:30
+Funda note: Screener ROE/ROCE ~18/18; Q1 FY27 out 24 Jul; not on F&amp;O ban; soft volume is the caveat
+
+Thu DRREDDY outcome already in skill (−₹58 net est.). Tally ~−₹56 after 3 real trades.
+Real Stock Trader sizes / proposes; the owner yes required evening before. entry_mode confirmation. No live data.
+</code></pre></main>
+<!-- Giscus comments (GitHub Discussions). Put just before </footer> or </body> on content pages only, not the home page. -->
+<section id="comments" class="comments" style="max-width:860px;margin:40px auto;padding:0 16px">
+<script src="https://giscus.app/client.js"
+        data-repo="curiosta/equity"
+        data-repo-id="R_kgDOU5tv1Q"
+        data-category="Comments"
+        data-category-id="DIC_kwDOU5tv1c4DG97C"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+
+<footer class="wrap">Updated Mon 05 Oct 2026, 20:28 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+</body></html>
