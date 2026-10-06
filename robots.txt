@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://equity.curiosta.com/sitemap.xml
