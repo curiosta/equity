@@ -1,0 +1,100 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Tue 06 Oct 2026 · Equity desk</title><meta name="description" content="Intraday brief for Tue 06 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<link rel="canonical" href="https://equity.curiosta.com/journal/2026-10-06.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Equity desk · equity.curiosta.com">
+<meta property="og:title" content="Brief for Tue 06 Oct 2026 · Equity desk"><meta property="og:description" content="Intraday brief for Tue 06 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<meta property="og:url" content="https://equity.curiosta.com/journal/2026-10-06.html"><meta property="og:image" content="https://equity.curiosta.com/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/style.css"></head><body>
+<header><div class="wrap"><a class="brand" href="/">equity.curiosta.com</a><nav><a href="/">Home</a><a href="/strategy-quarterly.html">Quarterly strategy</a><a href="/strategy-intraday.html">Intraday strategy</a><a href="/journal/" class=on>Journal</a><a href="/experiments.html">Experiments</a><a href="/code.html">Code</a><a href="/changelog.html">Changelog</a></nav></div></header>
+<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="nse-intraday-candidates-tue-6-oct-2026">NSE Intraday Candidates — Tue 6 Oct 2026</h1>
+<p><strong>confirmation entry · Levels planned from Mon 5 Oct 2026 EOD only (not live) · EMPTY LIST</strong></p>
+<h2 id="1-data-and-context">1) Data and context</h2>
+<ul>
+<li><strong>Session bar date:</strong> Mon 5 Oct 2026 (Yahoo Finance India <code>.NS</code> / <code>^NSEI</code> daily + 15m bars via <code>scripts/eod_tech.py</code>, pulled ~19:35 IST). No <code>stale</code> flags; 3 symbols returned 404 (LTIM, CUMMINSIN, ICICIPRUDLI).</li>
+<li><strong>Calendar:</strong> Tue 6 Oct 2026 is a normal NSE session (NSE circular CMTR71775: October holidays are 2 Oct and 20 Oct Dussehra). Real Stock Trader trades Tue.</li>
+<li><strong>Index:</strong> Nifty 50 closed <strong>22,555.75 (+0.60%)</strong>, O 22,532.40 / H 22,621.80 / L 22,397.10. <strong>20-DMA ~23,203 (falling)</strong>, <strong>50-DMA ~23,844 (falling)</strong>, close below both; 20d return <strong>−5.52%</strong>.</li>
+<li><strong>Weak market:</strong> <strong>YES</strong> → at most 2 names, RS ≥ ~+5 pp only, confirmation entry still applies. Monday's bounce did not change the trend.</li>
+<li><strong>Scan:</strong> 179 liquid F&amp;O / Midcap 150 / large-cap names (<code>intraday/data/2026-10-06/eod_tech.json</code>).</li>
+</ul>
+<p><strong>Funnel:</strong> 176 usable → <strong>3</strong> above rising 20+50 DMA (all with RS ≥ +5) → 2 in RSI 55–70 → <strong>0</strong> closing in the top part of the range → <strong>0</strong> with <code>or30_vs_stop</code> ≤ 1.0. <strong>No candidate.</strong> An empty list is the right result tonight.</p>
+<h2 id="2-mon-5-oct-lauruslabs-check-market-data-not-the-traders-report">2) Mon 5 Oct LAURUSLABS check (market data, not the trader's report)</h2>
+<p>Yahoo 15m bars: opened <strong>1,993.9</strong> (inside the 2,001 skip), first bar fell to <strong>1,967.9</strong> and closed 1,970.0. At ~09:30 the price (~1,970) was below the 1,984 entry and the low had broken the <strong>1,971 weak-hold</strong>, so the confirmation rule says <strong>skip</strong>. Day: H 2,002 / L 1,955.1 / C 1,971.4. The wider stop of 1,958 was not reached until after 11:45 (low 1,955.1), and the 2,040 target was never in reach. Real Stock Trader's actual fill/skip report hasn't been seen by the picker, so the official outcome is <strong>pending</strong>.</p>
+<h2 id="3-candidates">3) Candidates</h2>
+<p><strong>None.</strong></p>
+<h2 id="4-rejects-considered">4) Rejects (considered)</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Why rejected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LAURUSLABS</strong></td>
+<td>Still above rising 20/50 (C 1,971.4 vs 20-DMA ~1,969.7, barely), RS +12.8, RSI 55.7, but close_pos <strong>0.35</strong>, vol <strong>0.85×</strong>, <code>or30_vs_stop</code> <strong>1.35</strong>, and it failed confirmation today. Don't relist a fading name.</td>
+</tr>
+<tr>
+<td><strong>LALPATHLAB</strong></td>
+<td>Rising 20/50, RS +10.6, RSI 58.8, but closed near the low (close_pos <strong>0.17</strong>) after H 2,026; <code>or30_vs_stop</code> <strong>1.47</strong>, atr% 3.15.</td>
+</tr>
+<tr>
+<td><strong>DRREDDY</strong></td>
+<td>Rising 20/50, RS +10.1, clean noise 0.87, vol 1.6×, close_pos 0.80, but RSI <strong>53.0</strong> (below band). Watch for Wed if RSI moves into 55+.</td>
+</tr>
+<tr>
+<td><strong>VBL / MANKIND / ICICIGI / ADANIPORTS / COALINDIA</strong></td>
+<td>Strong RS (+8 to +13.5) but <strong>50-DMA not rising</strong> (flat = reject).</td>
+</tr>
+<tr>
+<td><strong>PAGEIND</strong></td>
+<td>50-DMA not rising and price ~₹37,465 (price fit fails).</td>
+</tr>
+<tr>
+<td><strong>ZYDUSLIFE / PAYTM / AUROPHARMA / DIVISLAB</strong></td>
+<td>Below 20-DMA.</td>
+</tr>
+<tr>
+<td><strong>Most Nifty large caps</strong></td>
+<td>Below falling 20/50 stack with the index.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-one-slot-recommendation">5) One-slot recommendation</h2>
+<p>None. No trade for Tue 6 Oct.</p>
+<h2 id="6-desk-paste">6) Desk paste</h2>
+<pre><code>Intraday desk — Tue 6 Oct · confirmation entry · from Mon 5 Oct EOD (not live)
+
+NO CANDIDATES for Tue 6 Oct.
+Market: Nifty 22,556 (+0.60%), still below falling 20-DMA (~23,203) and 50-DMA (~23,844) → WEAK.
+Funnel: 179 scanned → 3 above rising 20/50 → 0 closing strong with clean noise.
+Rejects: LAURUSLABS (weak close 0.35, noise 1.35), LALPATHLAB (closed near low, noise 1.47), DRREDDY (RSI 53, below band).
+
+Mon LAURUSLABS: Yahoo 15m shows open 1993.9, 09:30 ~1970 &lt; entry 1984, low 1967.9 broke weak-hold 1971 → confirmation should have skipped. Trader's official outcome pending; tally ~−₹56 net after 3 real trades.
+</code></pre></main>
+<!-- Giscus comments (GitHub Discussions). Put just before </footer> or </body> on content pages only, not the home page. -->
+<section id="comments" class="comments" style="max-width:860px;margin:40px auto;padding:0 16px">
+<script src="https://giscus.app/client.js"
+        data-repo="curiosta/equity"
+        data-repo-id="R_kgDOU5tv1Q"
+        data-category="Comments"
+        data-category-id="DIC_kwDOU5tv1c4DG97C"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+
+<footer class="wrap">Updated Tue 06 Oct 2026, 20:24 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+</body></html>
