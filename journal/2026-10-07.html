@@ -1,0 +1,123 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Wed 07 Oct 2026 · Equity desk</title><meta name="description" content="Intraday brief for Wed 07 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<link rel="canonical" href="https://equity.curiosta.com/journal/2026-10-07.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Equity desk · equity.curiosta.com">
+<meta property="og:title" content="Brief for Wed 07 Oct 2026 · Equity desk"><meta property="og:description" content="Intraday brief for Wed 07 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<meta property="og:url" content="https://equity.curiosta.com/journal/2026-10-07.html"><meta property="og:image" content="https://equity.curiosta.com/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/style.css"></head><body>
+<header><div class="wrap"><a class="brand" href="/">equity.curiosta.com</a><nav><a href="/">Home</a><a href="/strategy-quarterly.html">Quarterly strategy</a><a href="/strategy-intraday.html">Intraday strategy</a><a href="/journal/" class=on>Journal</a><a href="/experiments.html">Experiments</a><a href="/code.html">Code</a><a href="/changelog.html">Changelog</a></nav></div></header>
+<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="nse-intraday-candidates-wed-7-oct-2026">NSE Intraday Candidates — Wed 7 Oct 2026</h1>
+<p><strong>confirmation entry · Levels planned from Tue 6 Oct 2026 EOD only (not live) · 1 name (wider stop, owner's call)</strong></p>
+<h2 id="1-data-and-context">1) Data and context</h2>
+<ul>
+<li><strong>Session bar date:</strong> Tue 6 Oct 2026 (Yahoo Finance India <code>.NS</code> / <code>^NSEI</code> daily + 15m bars via <code>scripts/eod_tech.py</code>, pulled ~19:35 IST). No <code>stale</code> flags; LTIM, CUMMINSIN, ICICIPRUDLI returned 404. Data caveat: Yahoo's daily series carries a zero-volume placeholder bar for the 2 Oct holiday, which nudges DMAs and slightly inflates <code>vol_x</code>.</li>
+<li><strong>Calendar:</strong> Wed 7 Oct 2026 is a normal NSE session (NSE circular CMTR71775: October holidays are 2 Oct and 20 Oct Dussehra). Real Stock Trader trades Wed. F&amp;O ban for 7 Oct: AMBUJACEM, BANDHANBNK, SAIL (NSE <code>fo_secban_07102026.csv</code>), none relevant.</li>
+<li><strong>Index:</strong> Nifty 50 closed <strong>22,776.10 (+0.98%)</strong>, O 22,603.25 / H 22,776.10 / L 22,561.60 (closed at the high). <strong>20-DMA ~23,147 (falling)</strong>, <strong>50-DMA ~23,824 (falling)</strong>, close below both; 20d return <strong>−4.69%</strong>.</li>
+<li><strong>Weak market:</strong> <strong>YES</strong> → at most 2 names, RS ≥ ~+5 pp only, confirmation entry applies. Second straight bounce, trend not repaired.</li>
+<li><strong>Scan:</strong> 179 liquid F&amp;O / Midcap 150 / large-cap names (<code>intraday/data/2026-10-07/eod_tech.json</code>).</li>
+</ul>
+<p><strong>Funnel:</strong> 176 usable → <strong>10</strong> above rising 20+50 DMA → <strong>7</strong> with RS ≥ +5 → 5 in RSI ~55–70 (BHEL, LAURUSLABS, LALPATHLAB, GLAND, SONACOMS at 55.0) → 4 closing in the top of the range (BHEL, LAURUSLABS, GLAND, SONACOMS) → GLAND fails price fit (~₹3,006) → <strong>0</strong> with <code>or30_vs_stop</code> ≤ 1.0 at a 1% stop. LAURUSLABS survives only with a wider stop and a target ≥ 1.5× the worst-case risk (Step 3b). BHEL has no realistic target at that distance.</p>
+<h2 id="2-tue-6-oct-outcome">2) Tue 6 Oct outcome</h2>
+<p>Empty list, so no picker trade (₹0). Real Stock Trader's BANKBEES fill on 6 Oct was a one-off infrastructure test, not a pick, and stays out of the tally. Tally unchanged at about −₹56 net after 3 real trades.</p>
+<h2 id="3-candidates">3) Candidates</h2>
+<h3 id="primary-lauruslabs-wider-stop-confirmation-entry">PRIMARY — LAURUSLABS (wider stop, confirmation entry)</h3>
+<ul>
+<li><strong>Quality / risk:</strong> pharma CDMO; ROE ~18% (Univest/Screener data), but rich valuation (P/E ~97). Up ~77% YTD vs a falling index. Only news on 6 Oct was a ₹12.09 cr rights-issue top-up in associate Kurnool Renewables (stake unchanged at 26%; ScanX / TipRanks), not a catalyst. No results or corporate action due 7 Oct found.</li>
+<li><strong>Setup:</strong> C <strong>2,050.0</strong>, H 2,054.9, L 1,958.0 (+4.0% day). 20-DMA 1,980.2 (rising), 50-DMA 1,900.1 (rising). RSI <strong>66.5</strong>. Volume <strong>1.40×</strong> 20d avg. close_pos <strong>0.95</strong>. RS vs Nifty <strong>+8.9 pp</strong> (20d). 52-week / all-time high <strong>2,055.3</strong> (24 Sep) sits just above the close, so it has to clear that first.</li>
+<li><strong>Noise:</strong> <code>or30_med</code> <strong>26.55</strong> (1.30%); <code>or30_vs_stop</code> <strong>1.30 at a 1% stop</strong> (noisy) → wider stop 26 pts gives <strong>1.02 (borderline)</strong>; <code>atr14_pct</code> <strong>2.32</strong>.</li>
+<li><strong>Levels:</strong> entry <strong>2,050</strong> · stop <strong>2,024</strong> (R = 26; worst case with ₹4 buffer = 30) · target <strong>2,100</strong> (+50 = <strong>1.92R</strong>, 1.67× worst-case risk) · <strong>5 shares</strong> (₹150 ÷ (2,050 − 2,020)) · notional ~₹10,250.</li>
+<li><strong>Skips:</strong> 1% skip <strong>2,070.5</strong> · <strong>1.5R skip 2,061</strong> (09:30 buy limit cap) · <strong>weak-hold 2,037</strong> (0.5R below entry).</li>
+<li><strong>Confirmation rule:</strong> no buy at the open. At ~09:30 buy only if price ≥ 2,050 and the low since 09:15 held above 2,037, limit ≤ 2,061. Otherwise skip.</li>
+<li><strong>Why:</strong> strong close at the top of the range on above-average volume, at the edge of a fresh high, in one of the few names beating a weak index. Target 2,100 is a round number about 1 ATR (47.6) above the close; there's no overhead resistance above 2,055.3, so the target is ATR-based, not a prior level. The wider stop is the owner's call.</li>
+</ul>
+<h3 id="secondary">Secondary</h3>
+<p>None. Nothing else clears the weak-market and noise filters.</p>
+<h2 id="4-rejects-considered">4) Rejects (considered)</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Why rejected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BHEL</strong></td>
+<td>Best RS (+10.7), RSI 65.4, record high close 452 (H 453.9) on <strong>3.66×</strong> volume after a channel breakout (Business Standard, ZeeBiz, BusinessToday; Choice Broking sees 480 next). But <code>or30_vs_stop</code> <strong>1.52</strong> at 1%; a noise-proof stop (~445) needs a target ≥ ~468.5–472, which is +4% after a +5.4% day and right at the <strong>471.90 upper circuit</strong> (Choice). No realistic intraday target → drop. Results 14 Oct. Watch.</td>
+</tr>
+<tr>
+<td><strong>LALPATHLAB</strong></td>
+<td>Rising 20/50, RS +7.5, RSI 57.1, but closed near the low again (close_pos <strong>0.25</strong>), vol 0.70×, <code>or30_vs_stop</code> 1.48.</td>
+</tr>
+<tr>
+<td><strong>DRREDDY</strong></td>
+<td>Rising 20/50, RS +9.8, clean-ish noise 0.90, but RSI <strong>54.4</strong> (below band) and volume <strong>0.80×</strong>. Stopped us out on 1 Oct. Watch.</td>
+</tr>
+<tr>
+<td><strong>GLAND</strong></td>
+<td>Close ~₹3,006 (price fit fails), <code>or30_vs_stop</code> 1.61.</td>
+</tr>
+<tr>
+<td><strong>SONACOMS</strong></td>
+<td>RSI 55.0 (edge of band), close_pos 0.94, but volume <strong>0.76×</strong> and <code>or30_vs_stop</code> <strong>1.22</strong>.</td>
+</tr>
+<tr>
+<td><strong>AJANTPHARM</strong></td>
+<td>RSI 53.0, <code>or30_vs_stop</code> 1.38, price &gt; ₹3,000.</td>
+</tr>
+<tr>
+<td><strong>ZYDUSLIFE / AUROPHARMA / DIVISLAB</strong></td>
+<td>RS below +5 pp (weak-market filter); DIVISLAB price fit fails.</td>
+</tr>
+<tr>
+<td><strong>VBL / MANKIND / ICICIGI / ADANIPORTS / INDUSTOWER / INDHOTEL</strong></td>
+<td>Strong RS (+7 to +12) but <strong>50-DMA not rising</strong> (flat = reject).</td>
+</tr>
+<tr>
+<td><strong>Most Nifty large caps</strong></td>
+<td>Below a falling 20/50 stack with the index.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-one-slot-recommendation">5) One-slot recommendation</h2>
+<p><strong>LAURUSLABS</strong> is the only name; take it only if you accept the wider 2,024 stop (5 shares, worst case ~₹150) and only if the 09:30 confirmation passes.</p>
+<h2 id="6-desk-paste">6) Desk paste</h2>
+<pre><code>Intraday desk — Wed 7 Oct · CONFIRMATION ENTRY · from Tue 6 Oct EOD (not live)
+Market: Nifty 22,776 (+0.98%), still below falling 20-DMA (~23,147) and 50-DMA (~23,824) → WEAK.
+
+PRIMARY: LAURUSLABS (wider stop — owner's call)
+Entry 2050 · Stop 2024 (R 26; worst w/ ₹4 buffer 30) · Target 2100 (1.92R)
+Shares 5 · 1% skip 2070.5 · 1.5R skip / 09:30 limit cap 2061 · Weak-hold 2037
+09:30: buy only if ≥2050 and low since 09:15 &gt; 2037; else skip.
+Setup: C 2050 (H 2054.9 / L 1958), 52wH 2055.3 just above; RSI 66.5; vol 1.40×; RS +8.9pp; close_pos 0.95
+Noise: or30_med 26.55; or30_vs_stop 1.30 @1% → 1.02 @ wider stop (borderline); atr 2.32%
+
+No secondary. Rejects: BHEL (noise 1.52; target would sit at 471.9 upper circuit), LALPATHLAB (closed near low), DRREDDY (RSI 54.4, vol 0.8×).
+Tue 6 Oct: no picker trade (₹0). Tally ~−₹56 net after 3 real trades.
+</code></pre></main>
+<!-- Giscus comments (GitHub Discussions). Put just before </footer> or </body> on content pages only, not the home page. -->
+<section id="comments" class="comments" style="max-width:860px;margin:40px auto;padding:0 16px">
+<script src="https://giscus.app/client.js"
+        data-repo="curiosta/equity"
+        data-repo-id="R_kgDOU5tv1Q"
+        data-category="Comments"
+        data-category-id="DIC_kwDOU5tv1c4DG97C"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+
+<footer class="wrap">Updated Wed 07 Oct 2026, 20:22 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+</body></html>
