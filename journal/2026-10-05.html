@@ -8,9 +8,13 @@
 <meta property="og:url" content="https://equity.curiosta.com/journal/2026-10-05.html"><meta property="og:image" content="https://equity.curiosta.com/og.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/style.css"></head><body>
-<header><div class="wrap"><a class="brand" href="/">equity.curiosta.com</a><nav><a href="/">Home</a><a href="/strategy-quarterly.html">Quarterly strategy</a><a href="/strategy-intraday.html">Intraday strategy</a><a href="/journal/" class=on>Journal</a><a href="/experiments.html">Experiments</a><a href="/code.html">Code</a><a href="/changelog.html">Changelog</a></nav></div></header>
-<main class="wrap"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div><h1 id="nse-intraday-candidates-mon-5-oct-2026">NSE Intraday Candidates — Mon 5 Oct 2026</h1>
+<meta name="theme-color" content="#041726">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/style.css?v=dc4ad4c9"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap"><a class="brand" href="/">equity<span>.</span>curiosta</a><nav aria-label="Site"><a href="/">Home</a><a href="/strategy-quarterly.html">Quarterly strategy</a><a href="/strategy-intraday.html">Intraday strategy</a><a href="/journal/" class=on aria-current="page">Journal</a><a href="/experiments.html">Experiments</a><a href="/code.html">Code</a><a href="/changelog.html">Changelog</a></nav></div></header>
+<section class="hero"><div class="wrap"><p class="eyebrow">Equity desk · Journal</p><h1 id="nse-intraday-candidates-mon-5-oct-2026">NSE Intraday Candidates — Mon 5 Oct 2026</h1></div></section>
+<main id="main" class="wrap narrow"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div>
 <p><strong>confirmation entry · Levels planned from Thu 1 Oct 2026 EOD only (not live)</strong></p>
 <h2 id="1-confirmation-data-used">1) Confirmation — data used</h2>
 <ul>
@@ -32,7 +36,7 @@
 <p><strong>Technical setup (Thu 1 Oct EOD — Yahoo LAURUSLABS.NS):</strong><br />
 O <strong>1,973.60</strong> / H <strong>2,006.90</strong> / L <strong>1,952.10</strong> / C <strong>1,984.00</strong>; vol <strong>~0.90×</strong> 20d avg (soft vs ~1.3× preference); close_pos <strong>0.58</strong>. Above <strong>rising</strong> 20-DMA <strong>~1,963.15</strong> and <strong>rising</strong> 50-DMA <strong>~1,881.41</strong>; RSI(14) <strong>~58.4</strong>; 20d RS vs Nifty <strong>~+12.3 pp</strong>. Structure: orderly hold above rising DMAs after Sep 24 thrust to H <strong>2,055.30</strong>; still the clearest Gate1+RS+RSI name on the tape.</p>
 <p><strong>Noise:</strong> <code>or30_med</code> <strong>26.05</strong> (n=20); bare 1% stop distance <strong>~19.84</strong> → <code>or30_vs_stop</code> <strong>1.31</strong>; <code>atr14_pct</code> <strong>2.36</strong>; <code>noise_flag</code> <strong>true</strong>. <strong>Offered with wider stop</strong> so <code>or30_vs_stop</code> ≈ <strong>1.00</strong> (borderline). Wider-stop risk + ₹4 buffer = ₹30 → min 1.5× target <strong>≥2,029</strong>; recent highs <strong>2,040 / 2,055.30</strong> sit above that. Soft volume is the main quality caveat.</p>
-<table>
+<table tabindex="0">
 <thead>
 <tr>
 <th>Field</th>
@@ -78,7 +82,7 @@ O <strong>1,973.60</strong> / H <strong>2,006.90</strong> / L <strong>1,952.10</
 <p><strong>Cancel / skip:</strong> Gap open <strong>≥2,004</strong> (1% chase); open <strong>≥2,001</strong> leaving &lt;1.5R to fixed target; open <strong>≤1,958</strong>; or at ~09:30 fails confirmation (price &lt; entry or session low since 09:15 ≤ <strong>1,971</strong>). Owner may also skip on soft volume / borderline noise.</p>
 <hr />
 <h2 id="3-rejects-considered">3) REJECTS (considered)</h2>
-<table>
+<table tabindex="0">
 <thead>
 <tr>
 <th>Name</th>
@@ -125,7 +129,7 @@ O <strong>1,973.60</strong> / H <strong>2,006.90</strong> / L <strong>1,952.10</
 <p>If only one slot → <strong>LAURUSLABS</strong> (wider-stop / confirmation; owner may skip on soft vol). No secondary listed.</p>
 <hr />
 <h2 id="5-desk-paste-copy-paste-ready">5) Desk paste (copy-paste ready)</h2>
-<pre><code>Intraday desk — confirmation entry · planned levels from Thu 1 Oct EOD for Mon 5 Oct session (not live)
+<pre tabindex="0"><code>Intraday desk — confirmation entry · planned levels from Thu 1 Oct EOD for Mon 5 Oct session (not live)
 
 Market: Nifty 22,422 (−0.88%), below falling 50-DMA (~23,870) → WEAK; max 2 names, RS-only. Confirmation entry from Mon 5 (no open buy; ~09:30 hold weak-hold).
 If only one slot → LAURUSLABS (wider stop / noise — owner call). No clean secondary.
@@ -141,7 +145,10 @@ Thu DRREDDY outcome already in skill (−₹58 net est.). Tally ~−₹56 after 
 Real Stock Trader sizes / proposes; the owner yes required evening before. entry_mode confirmation. No live data.
 </code></pre></main>
 <!-- Giscus comments (GitHub Discussions). Put just before </footer> or </body> on content pages only, not the home page. -->
-<section id="comments" class="comments" style="max-width:860px;margin:40px auto;padding:0 16px">
+<section id="comments" class="comments" aria-labelledby="discuss-h">
+<p class="eyebrow">Comments</p>
+<h2 id="discuss-h">Discuss this page</h2>
+<p class="note">Comments use GitHub Discussions, so you need a GitHub account to post.</p>
 <script src="https://giscus.app/client.js"
         data-repo="curiosta/equity"
         data-repo-id="R_kgDOU5tv1Q"
@@ -160,5 +167,5 @@ Real Stock Trader sizes / proposes; the owner yes required evening before. entry
 </script>
 </section>
 
-<footer class="wrap">Updated Wed 07 Oct 2026, 20:22 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</footer>
+<footer><div class="wrap"><p class="fbrand">Equity desk</p><p>Updated Wed 07 Oct 2026, 20:22 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</p></div></footer>
 </body></html>
