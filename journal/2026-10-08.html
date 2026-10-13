@@ -1,0 +1,134 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Thu 08 Oct 2026 · Equity desk</title><meta name="description" content="Intraday brief for Thu 08 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<link rel="canonical" href="https://equity.curiosta.com/journal/2026-10-08.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Equity desk · equity.curiosta.com">
+<meta property="og:title" content="Brief for Thu 08 Oct 2026 · Equity desk"><meta property="og:description" content="Intraday brief for Thu 08 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<meta property="og:url" content="https://equity.curiosta.com/journal/2026-10-08.html"><meta property="og:image" content="https://equity.curiosta.com/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#041726">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/style.css?v=dc4ad4c9"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap"><a class="brand" href="/">equity<span>.</span>curiosta</a><nav aria-label="Site"><a href="/">Home</a><a href="/strategy-quarterly.html">Quarterly strategy</a><a href="/strategy-intraday.html">Intraday strategy</a><a href="/journal/" class=on aria-current="page">Journal</a><a href="/experiments.html">Experiments</a><a href="/code.html">Code</a><a href="/changelog.html">Changelog</a></nav></div></header>
+<section class="hero"><div class="wrap"><p class="eyebrow">Equity desk · Journal</p><h1 id="nse-intraday-candidates-thu-8-oct-2026">NSE Intraday Candidates — Thu 8 Oct 2026</h1></div></section>
+<main id="main" class="wrap narrow"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div>
+<p><strong>confirmation entry · Levels planned from Wed 7 Oct 2026 EOD only (not live) · 1 name</strong></p>
+<h2 id="1-data-and-context">1) Data and context</h2>
+<ul>
+<li><strong>Session bar date:</strong> Wed 7 Oct 2026 (Yahoo Finance India <code>.NS</code> / <code>^NSEI</code> daily + 15m bars via <code>scripts/eod_tech.py</code>, pulled ~19:35 IST). No <code>stale</code> flags; LTIM, CUMMINSIN, ICICIPRUDLI returned 404. Data caveat: Yahoo's daily series still carries zero-volume placeholder bars for the 2 Oct and 14 Sep holidays, which nudge DMAs and slightly inflate <code>vol_x</code>.</li>
+<li><strong>Calendar:</strong> Thu 8 Oct 2026 is a normal NSE session (NSE circular CMTR71775: October holidays are 2 Oct and 20 Oct Dussehra). Real Stock Trader trades Thu. F&amp;O ban for 8 Oct: AMBUJACEM, BANDHANBNK, LICHSGFIN, SAIL (NSE <code>fo_secban.csv</code>, trade date 08-OCT-2026), none relevant.</li>
+<li><strong>Index:</strong> Nifty 50 closed <strong>22,603.05 (−0.76%)</strong>, O 22,690.45 / H 22,717.65 / L 22,546.30. <strong>20-DMA ~23,088 (falling)</strong>, <strong>50-DMA ~23,796 (falling)</strong>, close below both; 20d return <strong>−4.95%</strong>.</li>
+<li><strong>Weak market:</strong> <strong>YES</strong> → at most 2 names, RS ≥ ~+5 pp only, confirmation entry applies. The two-day bounce faded. Skip everything if the index gaps sharply lower.</li>
+<li><strong>Scan:</strong> 179 liquid F&amp;O / Midcap 150 / large-cap names (<code>intraday/data/2026-10-08/eod_tech.json</code>).</li>
+</ul>
+<p><strong>Funnel:</strong> 176 usable → <strong>11</strong> above rising 20+50 DMA → <strong>8</strong> with RS ≥ +5 → 5 in RSI ~55–70 (KOTAKBANK at 70.8, LAURUSLABS, PETRONET, GLAND, BHEL) → 2 closing in the top of the range (KOTAKBANK 0.88, GLAND 0.87) → GLAND fails price fit (~₹3,151) and noise → <strong>1</strong> (KOTAKBANK, <code>or30_vs_stop</code> 0.77 at a 1% stop).</p>
+<h2 id="2-wed-7-oct-outcome-lauruslabs">2) Wed 7 Oct outcome (LAURUSLABS)</h2>
+<ul>
+<li><strong>Confirmation check from Yahoo 15m bars (watch-only check):</strong> official open ~2,053.5 (inside the 2,070.5 1% skip). The 09:15–09:30 bar ran H 2,063.4 / L 2,043.0 / C 2,043.6, so at 09:30 the price was <strong>below the 2,050 entry</strong> while weak-hold 2,037 held → <strong>confirmation SKIP</strong>.</li>
+<li>Day: H 2,065.2 / L 2,035.6 / C 2,052.8 (Yahoo daily). The 2,100 target was never reached and the 2,024 stop was never hit.</li>
+<li><strong>Trader fill / P&amp;L: not seen by the picker, so outcome pending from Real Stock Trader.</strong> If the trader confirms no trade, it's ₹0 and the tally stays about −₹56 net after 3 real trades.</li>
+</ul>
+<h2 id="3-candidates">3) Candidates</h2>
+<h3 id="primary-kotakbank-confirmation-entry">PRIMARY — KOTAKBANK (confirmation entry)</h3>
+<ul>
+<li><strong>Quality / risk:</strong> large private bank, Nifty 50, very liquid (~3.8 crore shares, ~₹1,670 cr traded on 7 Oct). Q2 business update (filed 5 Oct): net advances +24.7% YoY to ₹5.77 lakh cr, deposits +23.2%, CASA +11.3%; GNPA 1.18%, NNPA 0.27% (CNBC TV18, Economic Times). Goldman raised its target to ₹540, Citi Buy ₹465 (HinduBusinessLine, BusinessToday). Q2 results date not yet announced; TipRanks estimates ~19 Oct, so nothing due on 8 Oct. No governance issue found. Risk: deposit growth was boosted by FCNR(B) flows, and RSI is at the top of the band after two strong days.</li>
+<li><strong>Setup:</strong> C <strong>440.0</strong>, H 441.5, L 429.0 (+1.9% on a −0.76% Nifty day). 20-DMA 415.4 (rising), 50-DMA 408.7 (rising). RSI <strong>70.8</strong> (edge of band). Volume <strong>2.13×</strong> 20d avg. close_pos <strong>0.88</strong>. RS vs Nifty <strong>+9.8 pp</strong> (20d). Cleared the 1 Oct high of 435.6 and spent 10:00–15:30 holding a 438–441.5 shelf (Yahoo 15m). 52-week high <strong>453.2</strong> (20 Oct 2025, post-split) is the next overhead level.</li>
+<li><strong>Noise:</strong> <code>or30_med</code> <strong>3.37</strong> (0.77%); <code>or30_vs_stop</code> <strong>0.77</strong> at a 1% stop (clean); <code>atr14_pct</code> <strong>2.13</strong>.</li>
+<li><strong>Levels:</strong> entry <strong>440.0</strong> · stop <strong>435.6</strong> (R = 4.4, at the 1 Oct breakout high) · target <strong>448.0</strong> (+8.0 = <strong>1.82R</strong>, about 0.85 ATR, below the 453.2 52-week high) · <strong>17 shares</strong> (₹150 ÷ (440 − 431.6) = 17.9) · notional ~₹7,480 · worst case 17 × 8.4 = ~₹143.</li>
+<li><strong>Skips:</strong> 1% skip <strong>444.4</strong> · <strong>1.5R skip 441.4</strong> (09:30 buy limit cap) · <strong>weak-hold 437.5</strong> (0.57R below entry, just under the 438 shelf).</li>
+<li><strong>Confirmation rule:</strong> no buy at the open. At ~09:30 buy only if price ≥ 440.0 and the low since 09:15 held above 437.5, limit ≤ 441.4. Otherwise skip.</li>
+<li><strong>Why:</strong> the strongest relative performer in a falling market, closing near the high on 2× volume after a fundamental catalyst, with clean opening noise against a normal 1% stop. Target is modest and sits under the only nearby overhead level.</li>
+</ul>
+<h3 id="secondary">Secondary</h3>
+<p>None. Nothing else clears the weak-market, close-position and noise filters.</p>
+<h2 id="4-rejects-considered">4) Rejects (considered)</h2>
+<table tabindex="0">
+<thead>
+<tr>
+<th>Name</th>
+<th>Why rejected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LAURUSLABS</strong></td>
+<td>Failed today's confirmation and closed mid-range (close_pos <strong>0.58</strong>) on <strong>0.95×</strong> volume; <code>or30_vs_stop</code> <strong>1.33</strong>. Don't relist.</td>
+</tr>
+<tr>
+<td><strong>PETRONET</strong></td>
+<td>RS +8.3, RSI 60.8, vol 1.72×, but closed mid-range (close_pos <strong>0.51</strong>) after rejecting 299.6; <code>or30_vs_stop</code> 0.91 (borderline). Watch.</td>
+</tr>
+<tr>
+<td><strong>GLAND</strong></td>
+<td>Strong (RSI 68.8, vol 3.22×, cp 0.87) but close ~₹3,151 (price fit fails) and <code>or30_vs_stop</code> <strong>1.53</strong>.</td>
+</tr>
+<tr>
+<td><strong>BHEL</strong></td>
+<td>Closed near the low (close_pos <strong>0.20</strong>) after a record high; <code>or30_vs_stop</code> 1.53. Results 14 Oct.</td>
+</tr>
+<tr>
+<td><strong>DRREDDY / LALPATHLAB</strong></td>
+<td>RSI below band (52.9 / 52.7), weak closes, volume under average.</td>
+</tr>
+<tr>
+<td><strong>ZYDUSLIFE / SONACOMS / DIVISLAB / AJANTPHARM</strong></td>
+<td>RS at or below ~+5 pp and RSI ~50–53 (DIVISLAB, AJANTPHARM also fail price fit).</td>
+</tr>
+<tr>
+<td><strong>Most Nifty large caps</strong></td>
+<td>Below a falling 20/50 stack with the index.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-one-slot-recommendation">5) One-slot recommendation</h2>
+<p><strong>KOTAKBANK</strong> is the only name; take it only if the 09:30 confirmation passes.</p>
+<h2 id="6-desk-paste">6) Desk paste</h2>
+<pre tabindex="0"><code>Intraday desk — Thu 8 Oct · CONFIRMATION ENTRY · from Wed 7 Oct EOD (not live)
+Market: Nifty 22,603 (−0.76%), below falling 20-DMA (~23,088) and 50-DMA (~23,796) → WEAK.
+
+PRIMARY: KOTAKBANK
+Entry 440.0 · Stop 435.6 (R 4.4) · Target 448.0 (1.82R)
+Shares 17 (worst ~₹143 w/ ₹4 buffer) · 1% skip 444.4 · 1.5R skip / 09:30 limit cap 441.4 · Weak-hold 437.5
+09:30: buy only if ≥440.0 and low since 09:15 &gt; 437.5; else skip.
+Setup: C 440 (H 441.5 / L 429) on a −0.76% Nifty day; RSI 70.8; vol 2.13×; RS +9.8pp; close_pos 0.88; 52wH 453.2
+Noise: or30_med 3.37; or30_vs_stop 0.77; atr 2.13%
+Catalyst: Q2 update (advances +24.7%, deposits +23.2%); no results due 8 Oct.
+
+No secondary. Rejects: LAURUSLABS (failed confirmation, mid-range close), PETRONET (mid-range close), GLAND (price/noise).
+Wed 7 Oct LAURUSLABS: 09:30 price ~2043.6 &lt; 2050 entry → confirmation SKIP per Yahoo 15m; fill/P&amp;L pending from RST.
+</code></pre>
+<h2 id="day-notes-thu-8-oct-2026-after-the-close">Day notes: Thu 8 Oct 2026 (after the close)</h2>
+<ul>
+<li><strong>Intraday:</strong> the only candidate, KOTAKBANK (entry 440.0 / stop 435.6 / target 448.0, confirmation entry), opened at 439.70 and was about 438.35 at the 09:30 check, below its entry, so it was skipped. No trade, ₹0. It later fell to about 433, below the stop, so the confirmation rule kept us out of a loss. Nifty closed 22,231.80.</li>
+<li><strong>Paper books:</strong> equity, IPO and US sleeves all flat (cash only since the 30 Sep reset). No paper trades.</li>
+<li><strong>Experiments and rules:</strong> no new experiments and no rule changes.</li>
+<li><strong>Site:</strong> no update was published on this day; the daily routines were paused from 8 to 11 Oct. This note was written after the fact on 14 Oct.</li>
+</ul></main>
+<!-- Giscus comments (GitHub Discussions). Put just before </footer> or </body> on content pages only, not the home page. -->
+<section id="comments" class="comments" aria-labelledby="discuss-h">
+<p class="eyebrow">Comments</p>
+<h2 id="discuss-h">Discuss this page</h2>
+<p class="note">Comments use GitHub Discussions, so you need a GitHub account to post.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="curiosta/equity"
+        data-repo-id="R_kgDOU5tv1Q"
+        data-category="Comments"
+        data-category-id="DIC_kwDOU5tv1c4DG97C"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+
+<footer><div class="wrap"><p class="fbrand">Equity desk</p><p>Updated Wed 14 Oct 2026, 05:19 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</p></div></footer>
+</body></html>

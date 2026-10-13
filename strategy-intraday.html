@@ -141,12 +141,30 @@
 <tr>
 <td>Wed 7 Oct 2026</td>
 <td><strong>LAURUSLABS</strong> 2,050 / 2,024 (wider) / 2,100 (5 shares, confirmation; 1.5R skip 2,061 / weak-hold 2,037); no secondary. BHEL dropped (noise 1.52; a noise-proof target sat at the 471.90 upper circuit)</td>
-<td><strong>Skipped (no trade).</strong> Live paused / no approved plan; RST confirmed nothing placed. Yahoo 15m: ~2,043.6 at 09:30 &lt; 2,050 entry (weak-hold 2,037 held). Day H 2,065.2 / L 2,035.6 / C 2,052.8; P&amp;L ₹0.</td>
+<td><strong>Confirmation skip (watch-only check); trader fill/P&amp;L pending.</strong> Yahoo 15m: opened ~2,053.5, 09:15 bar L 2,043.0 / C 2,043.6, so ~2,043.6 at 09:30 &lt; 2,050 entry (weak-hold 2,037 held). Day H 2,065.2 / L 2,035.6 / C 2,052.8; neither target nor stop touched.</td>
 <td>Relisted LAURUSLABS only after it closed strong (close_pos 0.95, 1.4× volume) at the edge of its 2,055.3 high. A close right at a fresh high with no level above did not extend: twice now the open dipped below entry and the ATR-based target was never near.</td>
+</tr>
+<tr>
+<td>Thu 8 Oct 2026</td>
+<td><strong>KOTAKBANK</strong> 440.0 / 435.6 / 448.0 (17 shares, 1.82R, confirmation; 1.5R skip 441.4 / weak-hold 437.5); no secondary. PETRONET (mid-range close) and LAURUSLABS (failed confirmation) rejected</td>
+<td><strong>Skipped (no trade).</strong> Live paused. Yahoo 15m: opened 439.70, ~438.35 at 09:30 &lt; 440 entry, so confirmation skip; afternoon low ~433 was below the 435.6 stop. P&amp;L ₹0.</td>
+<td>Clean noise (or30_vs_stop 0.77) on a normal 1% stop, RS +9.8 on a −0.76% Nifty day after a Q2 business-update catalyst.</td>
+</tr>
+<tr>
+<td>Mon 12 Oct 2026</td>
+<td><strong>None.</strong> Built Sun 11 Oct night from Fri 9 Oct EOD (routine paused 8–11 Oct). KOTAKBANK closest but closed at 0.43 of range after rejecting 445.25</td>
+<td><strong>No trade</strong> (empty list, ₹0).</td>
+<td>A reversal from the day high fails the strong-close gate even with RS +10; confirmation would have saved Thu 8 KOTAKBANK from a stop.</td>
+</tr>
+<tr>
+<td>Tue 13 Oct 2026</td>
+<td><strong>None.</strong> 176 scanned from Mon 12 Oct EOD; 12 above rising 20/50, none pass every gate. DRREDDY closest (C 1,229.4, RS +12.3, close_pos 0.85) but 0.75× volume and noise 0.97; KOTAKBANK 0.82× volume, RSI 69.1, under its 445.25 high; AUROPHARMA had volume (1.49×) but noise 1.18 and no target room under 1,740</td>
+<td><strong>No trade</strong> (empty list, ₹0).</td>
+<td>Thin volume market-wide (median vol_x 0.75) on a −0.70% Nifty day; strong closes without volume stay watch-only.</td>
 </tr>
 </tbody>
 </table>
-<p>Running tally after 3 real trades: about −₹56 net (estimated); Mon 5 Oct and Wed 7 Oct LAURUSLABS were confirmed skips (₹0), Tue 6 Oct had no pick, so the tally is unchanged. Judge the method on the trader's R scorecard after about 20 trades.</p>
+<p>Running tally after 3 real trades: about −₹56 net (estimated); Mon 5 Oct LAURUSLABS was a confirmed skip (₹0), Tue 6 Oct had no pick, and Wed 7 Oct LAURUSLABS and Thu 8 Oct KOTAKBANK failed the 09:30 confirmation (₹0), and Mon 12 and Tue 13 Oct had no pick (₹0), so the tally is unchanged unless the trader reports a fill. Judge the method on the trader's R scorecard after about 20 trades.</p>
 <h2 id="lessons-and-rule-changes-dated">Lessons and rule changes (dated)</h2>
 <ul>
 <li>25 Sep 2026: use strong liquid names, momentum technicals and modest targets. No live data.</li>
@@ -163,6 +181,7 @@
 </li>
 <li>7 Oct 2026: LAURUSLABS failed confirmation again (price under entry at 09:30 though weak-hold held). When a name closes at a fresh high with no overhead level, the open often dips first; prefer names with a nearby level for the target and reconsider relisting the same name after two confirmation skips.</li>
 <li>5 Oct 2026: first confirmation-entry session. LAURUSLABS opened inside the skip line but broke weak-hold in the first 15 minutes; 09:30 confirmation skipped (watch-only, ₹0). Keep confirmation entry while the Nifty is below a falling 50-DMA.</li>
+<li>13 Oct 2026: Yahoo's daily series returned a null bar for Mon 12 Oct for every .NS stock (the ^NSEI series was fine), and <code>eod_tech.py</code> silently skips null bars, so the DMAs, RSI, ret20 and avg volume shifted by one session. Spot-check the last 2–3 dates in a raw pull each evening. If a session is missing, backfill it from the previous evening's <code>eod_tech.json</code> (see <code>intraday/data/2026-10-14/backfill_run.py</code>) and gate on the backfilled run.</li>
 </ul>
 <h2 id="improving-this-skill">Improving this skill</h2>
 <p>After every session, add a log row with the brief, the actual open, the fill, the exit, the P&amp;L and one lesson. Every week or two, review the gap-skip rate, target-versus-stop hit rate, R per trade, and which setups worked. Change a rule only when several sessions support it, and date it under Lessons.</p></main>
@@ -189,5 +208,5 @@
 </script>
 </section>
 
-<footer><div class="wrap"><p class="fbrand">Equity desk</p><p>Updated Wed 07 Oct 2026, 20:22 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</p></div></footer>
+<footer><div class="wrap"><p class="fbrand">Equity desk</p><p>Updated Wed 14 Oct 2026, 05:19 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</p></div></footer>
 </body></html>

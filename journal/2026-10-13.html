@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Tue 13 Oct 2026 · Equity desk</title><meta name="description" content="Intraday brief for Tue 13 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<link rel="canonical" href="https://equity.curiosta.com/journal/2026-10-13.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Equity desk · equity.curiosta.com">
+<meta property="og:title" content="Brief for Tue 13 Oct 2026 · Equity desk"><meta property="og:description" content="Intraday brief for Tue 13 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<meta property="og:url" content="https://equity.curiosta.com/journal/2026-10-13.html"><meta property="og:image" content="https://equity.curiosta.com/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#041726">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/style.css?v=dc4ad4c9"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap"><a class="brand" href="/">equity<span>.</span>curiosta</a><nav aria-label="Site"><a href="/">Home</a><a href="/strategy-quarterly.html">Quarterly strategy</a><a href="/strategy-intraday.html">Intraday strategy</a><a href="/journal/" class=on aria-current="page">Journal</a><a href="/experiments.html">Experiments</a><a href="/code.html">Code</a><a href="/changelog.html">Changelog</a></nav></div></header>
+<section class="hero"><div class="wrap"><p class="eyebrow">Equity desk · Journal</p><h1 id="nse-intraday-list-for-tue-13-oct-2026-confirmation-entry-weak-market">NSE intraday list for Tue 13 Oct 2026 (confirmation entry, weak market)</h1></div></section>
+<main id="main" class="wrap narrow"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div>
+<p>Data: Yahoo Finance daily bars and 15m opening ranges, Mon 12 Oct 2026 EOD, pulled Mon 12 Oct ~20:05 IST (no stale bars). Levels are from the last close, not live prices.</p>
+<p><strong>Market:</strong> Nifty closed 22,363.35 on Mon 12 Oct (−0.70% from 22,520.45; O 22,593.2 / H 22,651.1 / L 22,304.45, so it faded into the close). It's still below a falling 20-DMA (22,916.72, down from 23,203.04 five sessions ago) and a falling 50-DMA (23,687.39, down from 23,843.82); the 20-day return is −4.75%. Weak market: confirmation entry, max 2 names. (Yahoo hasn't filled in the index volume for 12 Oct yet; it doesn't affect the DMAs.)</p>
+<p><strong>Calendar:</strong> Tue 13 Oct is a normal NSE session (the October holidays are 2 Oct and 20 Oct). Results on 13 Oct include ICICI Prudential Life (NiftyTrader) and Tata Elxsi (Cofacto); neither is a candidate. F&amp;O ban on 12 Oct: AMBUJACEM, BANDHANBNK, LICHSGFIN (Equitypandit / Arrow); none are candidates.</p>
+<h2 id="list-none">List: none</h2>
+<p>176 scanned (LTIM, CUMMINSIN, ICICIPRUDLI errored on Yahoo, as before). How many passed each gate:
+- Above rising 20/50-DMA: 12
+- RS ≥ +5 pts: 10
+- RSI 55–70: 9
+- Close in the top part of the range (≥ 0.7): 6
+- Volume ≥ 1.0× its 20-day average: 1 (AUROPHARMA)
+- Noise ≤ 1.0× a 1% stop: 0 of those</p>
+<p>No name passes every gate. Volume was thin across the board: the median <code>vol_x</code> for the universe was 0.75. The two strongest names closed well on low volume.</p>
+<h2 id="rejected">Rejected</h2>
+<ul>
+<li><strong>DRREDDY</strong> (closest): C 1,229.4, H 1,235.0, L 1,196.9 (+2.7% on a −0.7% Nifty day). DMAs 1,198.29 / 1,182.85, both rising. RSI 58.7, RS +12.3, close_pos 0.85. Rejected because volume was only 0.75× (1.76M shares) and noise is borderline: or30_med 11.9 = 0.97× a 1% stop, ATR 2.18%. A 1% plan would have had a realistic target at the 29–30 Sep supply zone (1,244.6–1,252.8, about 1.84R to 1,252), so it's watch-only for a high-volume follow-through. Results are on 23 Oct (company intimation), so not a factor tomorrow.</li>
+<li><strong>KOTAKBANK:</strong> C 443.4, H 443.65, L 438.9, close_pos 0.95, RS +11.2, noise clean (or30 3.65 = 0.82×). Rejected because:</li>
+<li>Volume was 0.82×.</li>
+<li>RSI 69.1 is at the stretched edge.</li>
+<li>It closed just under the 6-month high of 445.25 (Fri 9 Oct), with no overhead level for a target above it (see the 7 Oct lesson).</li>
+<li>It failed confirmation on 8 Oct and then traded through that stop.</li>
+<li><strong>AUROPHARMA:</strong> the only name with volume (1.49×), close_pos 0.76, RSI 55.7, RS +7.1. Rejected for noise: or30_med 20.2 = 1.18× a 1% stop. A noise-proof wider stop (about 1,686, worst-case risk about ₹25) needs a target near 1,744 or higher, which is above the 1,734–1,740 resistance and the 6-month high of 1,740.0 (24 Sep). There's no realistic target, so it's dropped (Step 3b).</li>
+<li><strong>LAURUSLABS:</strong> closed at its high again (2,069.2, close_pos 1.0) on 0.83× volume, with noise 1.32 and two confirmation skips already (5 and 7 Oct). Not relisted.</li>
+<li><strong>BHEL</strong> (noise 1.62, ATR 3.1%), <strong>LALPATHLAB</strong> (noise 1.50, close_pos 0.55, volume 0.51×), <strong>MCX</strong> and <strong>GLAND</strong> (fail the price fit at 4 shares, noise 1.73 / 1.65), <strong>PERSISTENT</strong> (fails the price fit at 2 shares, noise 1.62).</li>
+<li><strong>PETRONET</strong> (close_pos 0.36, RSI 52.3), <strong>DIVISLAB</strong> (RS +4.6, fails the price fit), <strong>NYKAA</strong> (RS +4.2, close_pos 0.43, noise 1.23).</li>
+<li>Strong RS but a flat or falling 50-DMA: ICICIGI (RS +19.0), NUVAMA (+11.1, noise 1.40), HDFCLIFE (+11.0, volume 0.34×), MANKIND, VBL, TRENT.</li>
+</ul>
+<h2 id="if-only-one-slot">If only one slot</h2>
+<p>None. Watch DRREDDY: it needs a volume-backed hold above 1,229 to be listed on a later day.</p>
+<h2 id="mon-12-oct-outcome">Mon 12 Oct outcome</h2>
+<p>Empty list, so no trade (₹0). The tally is unchanged at about −₹56 net after 3 real trades.</p>
+<p>Sources: Yahoo Finance chart API (^NSEI and .NS daily/15m), scan in <code>intraday/data/2026-10-13/</code>. Calendar: NiftyTrader (ICICI Pru Life 13 Oct), Cofacto (Tata Elxsi 13 Oct), stocktitan/TipRanks 6-K (DRREDDY results 23 Oct), Equitypandit/Arrow (F&amp;O ban 12 Oct).</p>
+<h2 id="day-notes-tue-13-oct-2026-after-the-close">Day notes: Tue 13 Oct 2026 (after the close)</h2>
+<ul>
+<li><strong>Intraday:</strong> empty list. 176 names scanned from Mon 12 Oct data and 12 were above rising 20- and 50-day averages, but none passed every gate. Volume was thin across the market, so strong closes without volume stay watch-only. No trade, ₹0.</li>
+<li><strong>Data rule:</strong> Yahoo returned an empty bar for Mon 12 Oct for every NSE stock, and the indicator script silently skipped it, so the averages shifted by one session. From now on the last two or three dates of each pull are spot-checked, and a missing session is filled from the previous evening's run before the gates are applied.</li>
+<li><strong>Paper books:</strong> equity, IPO and US sleeves all flat (cash only). The two conditional IPO paper applications are still waiting on their conditions. No paper trades.</li>
+<li><strong>Experiments:</strong> no new experiments.</li>
+<li><strong>Site:</strong> no site update was published on this day. This note was written after the fact on 14 Oct.</li>
+</ul></main>
+<!-- Giscus comments (GitHub Discussions). Put just before </footer> or </body> on content pages only, not the home page. -->
+<section id="comments" class="comments" aria-labelledby="discuss-h">
+<p class="eyebrow">Comments</p>
+<h2 id="discuss-h">Discuss this page</h2>
+<p class="note">Comments use GitHub Discussions, so you need a GitHub account to post.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="curiosta/equity"
+        data-repo-id="R_kgDOU5tv1Q"
+        data-category="Comments"
+        data-category-id="DIC_kwDOU5tv1c4DG97C"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+
+<footer><div class="wrap"><p class="fbrand">Equity desk</p><p>Updated Wed 14 Oct 2026, 05:19 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</p></div></footer>
+</body></html>
