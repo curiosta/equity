@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Thu 15 Oct 2026 · Equity desk</title><meta name="description" content="Intraday brief for Thu 15 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<link rel="canonical" href="https://equity.curiosta.com/journal/2026-10-15.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Equity desk · equity.curiosta.com">
+<meta property="og:title" content="Brief for Thu 15 Oct 2026 · Equity desk"><meta property="og:description" content="Intraday brief for Thu 15 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<meta property="og:url" content="https://equity.curiosta.com/journal/2026-10-15.html"><meta property="og:image" content="https://equity.curiosta.com/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#041726">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/style.css?v=dc4ad4c9"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap"><a class="brand" href="/">equity<span>.</span>curiosta</a><nav aria-label="Site"><a href="/">Home</a><a href="/strategy-quarterly.html">Quarterly strategy</a><a href="/strategy-intraday.html">Intraday strategy</a><a href="/journal/" class=on aria-current="page">Journal</a><a href="/experiments.html">Experiments</a><a href="/code.html">Code</a><a href="/changelog.html">Changelog</a></nav></div></header>
+<section class="hero"><div class="wrap"><p class="eyebrow">Equity desk · Journal</p><h1 id="nse-intraday-list-for-thu-15-oct-2026-confirmation-entry-weak-market">NSE intraday list for Thu 15 Oct 2026 (confirmation entry, weak market)</h1></div></section>
+<main id="main" class="wrap narrow"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div>
+<p>Data: Yahoo Finance daily bars and 15m opening ranges, Wed 14 Oct 2026 EOD, pulled Wed 14 Oct ~19:26 IST (no stale bars). Levels are from the last close, not live prices. <strong>Data note:</strong> Yahoo's 12 Oct bars are back for .NS stocks (spot-checked RELIANCE, DRREDDY and ^NSEI over the last six sessions), so no backfill was needed tonight.</p>
+<p><strong>Market:</strong> Nifty closed 22,622.70 on Wed 14 Oct (−0.44%, −99.25; O 22,715.75 / H 22,757.95 / L 22,558.95), giving back part of Tuesday's +1.6% bounce on firmer crude and profit-taking in financials and pharma. It is still below a falling 20-DMA (22,858.11, down from 23,088.16 five sessions ago) and a falling 50-DMA (23,611.13, down from 23,796.13); the 20-day return is −2.15%. India VIX rose 3.6% to 14.6. Weak market: confirmation entry, max 2 names.</p>
+<p><strong>Calendar:</strong> Thu 15 Oct is a normal NSE session (the October holidays are 2 Oct and 20 Oct). F&amp;O ban for 15 Oct: KAYNES, AMBUJACEM (Equity Timer, NSE EOD file of 14 Oct); SAIL is close at 94.4%. None are candidates.</p>
+<h2 id="list-none">List: none</h2>
+<p>176 scanned (LTIM, CUMMINSIN, ICICIPRUDLI errored on Yahoo, as before). How many passed each gate:
+- Above rising 20/50-DMA: 15
+- RS ≥ +5 pts: 14
+- RSI 55–70: 11
+- Close in the top part of the range (≥ 0.7): 3 (BHEL, SUPREMEIND, PNB)
+- Volume ≥ 1.0× its 20-day average: 3 (same three)
+- Noise ≤ 1.0× a 1% stop: 0 of those (BHEL 1.47, SUPREMEIND 1.21, PNB 1.34)</p>
+<p>No name passes every gate. Median <code>vol_x</code> across the universe was 0.93.</p>
+<h2 id="rejected">Rejected</h2>
+<ul>
+<li><strong>BHEL</strong> (closest): C 464.0 (NSE; BSE 463.50), O 445.0, H 464.0, L 439.15, a record high. DMAs 429.85 / 424.69, both rising. RSI 65.3, RS +14.5, volume 4.0×, close_pos 1.0. The catalyst is Q2 FY27 results released mid-session on 14 Oct: net profit up about 120% to ₹821 crore and revenue up 23.8% (Business Standard). The stock was flat near 442 until 13:30, then jumped to about 460 on 9.3M shares in one 15-minute bar. Rejected because:</li>
+<li>Noise is 1.47× a 1% stop (or30_med about 6.8, ATR 3.15%).</li>
+<li>A wider-stop plan (entry 464, stop 456, risk 12 with the ₹4 buffer, 12 shares) needs a target of at least 482. That is +3.9% above an all-time high with no reference level, so there's no realistic target (Step 3b).</li>
+<li>It closed right at a fresh high after a results spike, the setup that dipped at the open twice for LAURUSLABS (7 Oct lesson). A post-results gap could also take the open past the 1% skip line.
+  Watch-only. Consider it only after a day or two of consolidation that gives a nearby level.</li>
+<li><strong>SUPREMEIND:</strong> close_pos 0.98, volume 2.29×, RS +11.5. Fails the price fit (C 3,607, 4 shares) and noise is 1.21.</li>
+<li><strong>PNB:</strong> C 118.5, close_pos 0.72, volume 1.6×, RS +5.5, RSI 59.0. Noise is 1.34, and its 20-DMA (115.34) sits barely above a flat 50-DMA (115.72). Rejected.</li>
+<li><strong>ICICIGI:</strong> results on 14 Oct. It spiked to 1,753.3 and then faded to 1,713 (close_pos 0.44), with noise 1.12.</li>
+<li><strong>AXISBANK</strong> (close_pos 0.52, 1.89× volume, results 17 Oct), <strong>PETRONET</strong> (close_pos 0.68, RSI 54.9, RS +5.3, noise 0.96 borderline), <strong>KOTAKBANK</strong> (close_pos 0.11 after rejecting 444.9) and <strong>DRREDDY</strong> (fell to 1,216, close_pos 0.26, 0.69× volume). None of these are listed.</li>
+<li><strong>COFORGE, PERSISTENT, MPHASIS, LAURUSLABS, GLAND, HDFCLIFE, ANGELONE:</strong> weak closes (close_pos ≤ 0.46) and/or noise &gt; 1.2; PERSISTENT and GLAND also fail the price fit.</li>
+<li><strong>NESTLEIND, TATACONSUM, HAVELLS:</strong> strong closes on 2–3× volume, but their 20/50-DMAs are falling (below the 50-DMA).</li>
+</ul>
+<h2 id="if-only-one-slot">If only one slot</h2>
+<p>None. Watch BHEL for consolidation above about 455 (the old 7 Oct high) before listing.</p>
+<h2 id="wed-14-oct-outcome">Wed 14 Oct outcome</h2>
+<p>Empty list, so no trade (₹0). The tally is unchanged at about −₹56 net after 3 real trades.</p>
+<p>Sources: Yahoo Finance chart API (^NSEI and .NS daily/15m), scan in <code>intraday/data/2026-10-15/</code>. Nifty close checked against ET Now, Upstox and Trendlyne (14 Oct). BHEL results from Business Standard (14 Oct, 2:54 PM and 3:04 PM IST) and Livemint. F&amp;O ban from Equity Timer (NSE EOD file, 14 Oct).</p>
+<h2 id="day-notes-thu-15-oct-2026-after-the-close">Day notes: Thu 15 Oct 2026 (after the close)</h2>
+<ul>
+<li><strong>Intraday:</strong> empty list for Thu 15 Oct. 176 names scanned from Wed 14 Oct data; 15 were above rising 20- and 50-day averages, but none passed every gate. BHEL came closest after a mid-session Q2 results spike to a record high, but noise was 1.47× a 1% stop and there was no realistic wider-stop target above an all-time high. No trade, ₹0. The tally stays about −₹56 net after 3 real trades.</li>
+<li><strong>Paper books:</strong> equity and US sleeves still flat (cash only) as of the 15 Oct close. The IPO paper sleeve moved from conditional to applied: one retail lot each in Bonfiglioli Transmissions (window 15–19 Oct) and Jio Platforms (window 21–23 Oct), blocking about ₹28,078 of sleeve cash. No secondary-market paper trades.</li>
+<li><strong>Experiments:</strong> no new experiments.</li>
+</ul></main>
+<!-- Giscus comments (GitHub Discussions). Put just before </footer> or </body> on content pages only, not the home page. -->
+<section id="comments" class="comments" aria-labelledby="discuss-h">
+<p class="eyebrow">Comments</p>
+<h2 id="discuss-h">Discuss this page</h2>
+<p class="note">Comments use GitHub Discussions, so you need a GitHub account to post.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="curiosta/equity"
+        data-repo-id="R_kgDOU5tv1Q"
+        data-category="Comments"
+        data-category-id="DIC_kwDOU5tv1c4DG97C"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+
+<footer><div class="wrap"><p class="fbrand">Equity desk</p><p>Updated Thu 15 Oct 2026, 20:30 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</p></div></footer>
+</body></html>
