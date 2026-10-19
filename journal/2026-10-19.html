@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Mon 19 Oct 2026 · Equity desk</title><meta name="description" content="Intraday brief for Mon 19 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<link rel="canonical" href="https://equity.curiosta.com/journal/2026-10-19.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Equity desk · equity.curiosta.com">
+<meta property="og:title" content="Brief for Mon 19 Oct 2026 · Equity desk"><meta property="og:description" content="Intraday brief for Mon 19 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<meta property="og:url" content="https://equity.curiosta.com/journal/2026-10-19.html"><meta property="og:image" content="https://equity.curiosta.com/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#041726">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/style.css?v=dc4ad4c9"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap"><a class="brand" href="/">equity<span>.</span>curiosta</a><nav aria-label="Site"><a href="/">Home</a><a href="/strategy-quarterly.html">Quarterly strategy</a><a href="/strategy-intraday.html">Intraday strategy</a><a href="/journal/" class=on aria-current="page">Journal</a><a href="/experiments.html">Experiments</a><a href="/code.html">Code</a><a href="/changelog.html">Changelog</a></nav></div></header>
+<section class="hero"><div class="wrap"><p class="eyebrow">Equity desk · Journal</p><h1 id="nse-intraday-list-for-mon-19-oct-2026-confirmation-entry-weak-market">NSE intraday list for Mon 19 Oct 2026 (confirmation entry, weak market)</h1></div></section>
+<main id="main" class="wrap narrow"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div>
+<p>Data: Yahoo Finance daily bars and 15m opening ranges, Fri 16 Oct 2026 EOD, pulled Sun 18 Oct ~19:28 IST (no stale bars; last six sessions spot-checked for ^NSEI, RELIANCE, DRREDDY and BHEL, so no backfill needed). Levels are from the last close, not live prices.</p>
+<p><strong>Market:</strong> Nifty closed 23,146.15 on Fri 16 Oct (+0.65%, +148.80; O 23,065.10 / H 23,149.85 / L 22,913.80), a second up day led by IT after Tech Mahindra's Q2 (+8.5%). It is now back above its 20-DMA (22,840.88) but that average is still falling (22,972.44 five sessions ago), and it remains below a falling 50-DMA (23,549.21, down from 23,726.47). 20-day return −0.53%. Brent about $105.6. Weak-market rules stay on: confirmation entry, max 2 names, RS ≥ +5.</p>
+<p><strong>Calendar:</strong> Mon 19 Oct is a normal NSE session. <strong>Tue 20 Oct is an NSE holiday (Dussehra)</strong>, so Monday evening's list will be for Wed 21 Oct. Axis Bank reported Q2 FY27 on Sat 17 Oct (PAT +38% to ₹7,003 crore, missed estimates), so Monday is its results-reaction session.</p>
+<h2 id="list-none">List: none</h2>
+<p>176 scanned (LTIM, CUMMINSIN, ICICIPRUDLI errored on Yahoo, as before). How many passed each gate:
+- Above rising 20/50-DMA: 18
+- RS ≥ +5 pts: 11
+- RSI 55–70: 11
+- Close in the top part of the range (≥ 0.7): 4 (COFORGE, DRREDDY, PERSISTENT, NYKAA)
+- Volume ≥ 1.0× its 20-day average: 2 (COFORGE, PERSISTENT)
+- Noise ≤ 1.0× a 1% stop: 0 (COFORGE 1.58, PERSISTENT 1.63)</p>
+<p>No name passes every gate. Median <code>vol_x</code> across the universe was 0.91.</p>
+<h2 id="rejected">Rejected</h2>
+<ul>
+<li><strong>DRREDDY</strong> (closest): C 1,233.0 = day high (close_pos 1.0), O 1,222 / L 1,214.1. DMAs 1,212.40 / 1,187.47, both rising. RSI 57.8, RS +5.5 (barely clears the weak-market bar). Fails on volume: 0.54× its 20-day average. Noise 0.97 is borderline (or30_med 11.9 vs a 12.3 stop; ATR 2.15%). It also sits under the 1,250.7 rejection of 13 Oct and the 1,252.8 supply, so a 1.8R target (~1,255) needs to clear that zone. Watch-only.</li>
+<li><strong>COFORGE:</strong> close_pos 1.0, RS +9.4, RSI 64.3, 1.01× volume, but noise 1.58 (ATR 3.07%) and its 20-DMA (1,833.8) is still below the 50-DMA (1,853.1).</li>
+<li><strong>PERSISTENT:</strong> 4.38× volume, close_pos 0.95, but fails the price fit (C 5,741, 2 shares) and noise 1.63.</li>
+<li><strong>NYKAA:</strong> close_pos 0.95, RS +7.1, but 0.55× volume and noise 1.07.</li>
+<li><strong>AXISBANK:</strong> close_pos 0.85, 1.34× volume, noise 0.92, but RS +4.6 (&lt; +5) and Q2 results came out Sat 17 Oct with a profit miss, so Monday's open is a results gap. Excluded.</li>
+<li><strong>HAL:</strong> close_pos 1.0, 1.4× volume, but fails the price fit (C 4,989, 3 shares) and RS +4.7.</li>
+<li><strong>KOTAKBANK</strong> (close_pos 0.40 after rejecting 453.1), <strong>ICICIGI</strong> (close_pos 0.46, noise 1.35), <strong>MPHASIS</strong> (close_pos 0.67, noise 1.63), <strong>LAURUSLABS</strong> (close_pos 0.55, noise 1.26), <strong>DLF</strong> (0.55× volume), <strong>SUPREMEIND</strong> and <strong>GLAND</strong> (price fit, weak close).</li>
+<li><strong>IT rally leaders (TECHM, TCS, INFY, HCLTECH, WIPRO):</strong> strong closes on 1.5–8× volume, but all still below a falling 50-DMA, RSI 69–76, and noise 1.06–1.64. Not listed.</li>
+</ul>
+<h2 id="if-only-one-slot">If only one slot</h2>
+<p>None. DRREDDY is the one to watch if volume returns and it clears 1,252.8.</p>
+<h2 id="thu-15-oct-outcome">Thu 15 Oct outcome</h2>
+<p>Empty list, so no trade (₹0). Fri 16 Oct is not a trading day for Real Stock Trader. The tally is unchanged at about −₹56 net after 3 real trades.</p>
+<p>Sources: Yahoo Finance chart API (^NSEI and .NS daily/15m), scan in <code>intraday/data/2026-10-19/</code>. Nifty close checked against The Hindu BusinessLine and ET Now (16 Oct). Axis Bank results from its NSE filing (17 Oct) and Business Standard / Moneycontrol (17 Oct). Holiday from the NSE 2026 calendar (20 Oct, as noted in the 15 Oct brief).</p>
+<h2 id="day-notes-mon-19-oct-2026-after-the-close">Day notes: Mon 19 Oct 2026 (after the close)</h2>
+<ul>
+<li><strong>Intraday:</strong> empty list for Mon 19 Oct. 176 names scanned from Fri 16 Oct data; 18 were above rising 20- and 50-day averages, but none passed every gate. DRREDDY came closest but traded on thin volume (0.54× its 20-day average) under a nearby supply zone. No trade, ₹0. The tally stays about −₹56 net after 3 real trades.</li>
+<li><strong>Market:</strong> Nifty closed 22,888.95 (−1.11%), ending the two-day IT-led rally as private banks fell after their Q2 results. It finished just above a falling 20-day average and below a falling 50-day average. Tue 20 Oct is an NSE holiday (Dussehra).</li>
+<li><strong>Paper books:</strong> equity and US sleeves still flat (cash only) as of the 19 Oct close. IPO paper sleeve unchanged at about ₹28,078 blocked: the Bonfiglioli Transmissions window closed on 19 Oct and allotment is awaited, and the Jio Platforms bid sits in the 21–23 Oct window. No secondary-market paper trades.</li>
+<li><strong>Experiments:</strong> no new experiments.</li>
+</ul></main>
+<!-- Giscus comments (GitHub Discussions). Put just before </footer> or </body> on content pages only, not the home page. -->
+<section id="comments" class="comments" aria-labelledby="discuss-h">
+<p class="eyebrow">Comments</p>
+<h2 id="discuss-h">Discuss this page</h2>
+<p class="note">Comments use GitHub Discussions, so you need a GitHub account to post.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="curiosta/equity"
+        data-repo-id="R_kgDOU5tv1Q"
+        data-category="Comments"
+        data-category-id="DIC_kwDOU5tv1c4DG97C"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+
+<footer><div class="wrap"><p class="fbrand">Equity desk</p><p>Updated Mon 19 Oct 2026, 20:30 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</p></div></footer>
+</body></html>
