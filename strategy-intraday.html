@@ -180,9 +180,15 @@
 <td><strong>No trade</strong> (empty list, ₹0).</td>
 <td>An IT-led two-day rally (+1.7%, +0.65%) put the Nifty back above its 20-DMA but under a falling 50-DMA; the leaders still had falling 50-DMAs and noise &gt; 1. Tue 20 Oct is a holiday, so Monday's list is for Wed 21.</td>
 </tr>
+<tr>
+<td>Wed 21 Oct 2026</td>
+<td><strong>None.</strong> Built Mon 19 Oct evening from Mon 19 EOD (Tue 20 Oct Dussehra holiday). 176 scanned; 18 above rising 20/50; chained gates RS ≥ +5 → 12, RSI 55–70 → 9, close_pos ≥ 0.7 → 2 (DRREDDY, MPHASIS), volume ≥ 1.0× → 1 (MPHASIS), noise ≤ 1.0 → 0. DRREDDY closest (C 1,242.5, close_pos 0.86, RS +6.8, noise 0.96) but 0.45× volume and still under the 1,250.7/1,252.8 supply; MPHASIS noise 1.63 and a noise-proof stop leaves only 3 shares</td>
+<td><strong>No trade</strong> (empty list, ₹0).</td>
+<td>A −1.11% Nifty day (private banks, IT reversal) with median vol_x 0.67: the only strong closes came without volume. A holiday gap adds open risk, so stay strict.</td>
+</tr>
 </tbody>
 </table>
-<p>Running tally after 3 real trades: about −₹56 net (estimated); Mon 5 Oct LAURUSLABS was a confirmed skip (₹0), Tue 6 Oct had no pick, and Wed 7 Oct LAURUSLABS and Thu 8 Oct KOTAKBANK failed the 09:30 confirmation (₹0), and Mon 12, Tue 13, Wed 14, Thu 15 and Mon 19 Oct had no pick (₹0), so the tally is unchanged unless the trader reports a fill. Judge the method on the trader's R scorecard after about 20 trades.</p>
+<p>Running tally after 3 real trades: about −₹56 net (estimated); Mon 5 Oct LAURUSLABS was a confirmed skip (₹0), Tue 6 Oct had no pick, and Wed 7 Oct LAURUSLABS and Thu 8 Oct KOTAKBANK failed the 09:30 confirmation (₹0), and Mon 12, Tue 13, Wed 14, Thu 15, Mon 19 and Wed 21 Oct had no pick (₹0), so the tally is unchanged unless the trader reports a fill. Judge the method on the trader's R scorecard after about 20 trades.</p>
 <h2 id="lessons-and-rule-changes-dated">Lessons and rule changes (dated)</h2>
 <ul>
 <li>25 Sep 2026: use strong liquid names, momentum technicals and modest targets. No live data.</li>
@@ -200,6 +206,9 @@
 <li>7 Oct 2026: LAURUSLABS failed confirmation again (price under entry at 09:30 though weak-hold held). When a name closes at a fresh high with no overhead level, the open often dips first; prefer names with a nearby level for the target and reconsider relisting the same name after two confirmation skips.</li>
 <li>5 Oct 2026: first confirmation-entry session. LAURUSLABS opened inside the skip line but broke weak-hold in the first 15 minutes; 09:30 confirmation skipped (watch-only, ₹0). Keep confirmation entry while the Nifty is below a falling 50-DMA.</li>
 <li>13 Oct 2026: Yahoo's daily series returned a null bar for Mon 12 Oct for every .NS stock (the ^NSEI series was fine), and <code>eod_tech.py</code> silently skips null bars, so the DMAs, RSI, ret20 and avg volume shifted by one session. Spot-check the last 2–3 dates in a raw pull each evening. If a session is missing, backfill it from the previous evening's <code>eod_tech.json</code> (see <code>intraday/data/2026-10-14/backfill_run.py</code>) and gate on the backfilled run.</li>
+<li>18 Oct 2026: when a session falls just before an NSE holiday (Tue 20 Oct, Dussehra), the next evening's list targets the session after the holiday (Wed 21 Oct). A Nifty back above a still-falling 20-DMA but under a falling 50-DMA keeps the weak-market rules on.</li>
+<li>19 Oct 2026: built the Wed 21 Oct list on Mon 19 evening (the Tue 20 holiday evening routine then stops quietly). Seventh straight empty list under a falling Nifty 50-DMA; no rule change, since every near-miss failed on volume or noise, which are exactly the gates that caught the 30 Sep and 1 Oct stop-outs.</li>
+<li>21 Oct 2026: Gemini pre-market RESULT docs can claim a research cut-off later than the Doc was actually created (the 21 Oct RESULT said "~08:15 IST 21 Oct" but was created 19 Oct ~21:38 IST). Check the Drive createdTime and treat anything "after" it as unverified; with an empty list, Gemini agreeing on drops changes nothing.</li>
 </ul>
 <h2 id="improving-this-skill">Improving this skill</h2>
 <p>After every session, add a log row with the brief, the actual open, the fill, the exit, the P&amp;L and one lesson. Every week or two, review the gap-skip rate, target-versus-stop hit rate, R per trade, and which setups worked. Change a rule only when several sessions support it, and date it under Lessons.</p></main>
@@ -226,5 +235,5 @@
 </script>
 </section>
 
-<footer><div class="wrap"><p class="fbrand">Equity desk</p><p>Updated Mon 19 Oct 2026, 20:30 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</p></div></footer>
+<footer><div class="wrap"><p class="fbrand">Equity desk</p><p>Updated Wed 21 Oct 2026, 20:20 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</p></div></footer>
 </body></html>
