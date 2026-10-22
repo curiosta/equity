@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brief for Thu 22 Oct 2026 · Equity desk</title><meta name="description" content="Intraday brief for Thu 22 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<link rel="canonical" href="https://equity.curiosta.com/journal/2026-10-22.html">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Equity desk · equity.curiosta.com">
+<meta property="og:title" content="Brief for Thu 22 Oct 2026 · Equity desk"><meta property="og:description" content="Intraday brief for Thu 22 Oct 2026: next-day NSE candidates planned from the previous close, published after the session ended.">
+<meta property="og:url" content="https://equity.curiosta.com/journal/2026-10-22.html"><meta property="og:image" content="https://equity.curiosta.com/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#041726">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="/style.css?v=dc4ad4c9"></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap"><a class="brand" href="/">equity<span>.</span>curiosta</a><nav aria-label="Site"><a href="/">Home</a><a href="/strategy-quarterly.html">Quarterly strategy</a><a href="/strategy-intraday.html">Intraday strategy</a><a href="/journal/" class=on aria-current="page">Journal</a><a href="/experiments.html">Experiments</a><a href="/code.html">Code</a><a href="/changelog.html">Changelog</a></nav></div></header>
+<section class="hero"><div class="wrap"><p class="eyebrow">Equity desk · Journal</p><h1 id="nse-intraday-list-for-thu-22-oct-2026-confirmation-entry-weak-market">NSE intraday list for Thu 22 Oct 2026 (confirmation entry, weak market)</h1></div></section>
+<main id="main" class="wrap narrow"><div class="disc"><strong>Not investment advice.</strong> This is a personal learning log. The authors are not SEBI-registered investment advisers or research analysts. Nothing here is a recommendation to buy or sell any security. Intraday levels are published only after the session has closed, as a record of what was tested. The portfolio is simulated, and past results don't predict future ones. Do your own research.</div>
+<p>Data: Yahoo Finance daily bars and 15m opening ranges, Wed 21 Oct 2026 EOD, pulled Wed 21 Oct ~19:22 IST (no stale bars; last five sessions spot-checked for ^NSEI, RELIANCE and DRREDDY, so no backfill needed). Levels are from the last close, not live prices.</p>
+<p><strong>Market:</strong> Nifty closed 22,811.35 on Wed 21 Oct (−0.34%, −77.60; O 23,016.00 / H 23,120.90 / L 22,649.90), a 471-point intraday range after the Dussehra holiday. It sits just above a falling 20-DMA (22,787.86, down from 22,882.91 five sessions ago) and below a falling 50-DMA (23,479.08, down from 23,654.16). 20-day return −2.58%. Weak-market rules stay on: confirmation entry, max 2 names, RS ≥ +5.</p>
+<p><strong>Calendar:</strong> Thu 22 Oct is a normal NSE session.</p>
+<h2 id="list-none">List: none</h2>
+<p>176 scanned (LTIM, CUMMINSIN, ICICIPRUDLI errored on Yahoo, as before). Gates applied in order:
+- Above rising 20/50-DMA: 14
+- RS ≥ +5 pts: 11
+- RSI 55–70: 6
+- Close in the top part of the range (≥ 0.7): 1 (PERSISTENT)
+- Volume ≥ 1.0× its 20-day average: 1 (PERSISTENT)
+- Noise ≤ 1.0× a 1% stop: 0 (PERSISTENT 1.62, and it fails the ₹3,000 price fit)</p>
+<p>No name passes every gate. Median <code>vol_x</code> was 0.89.</p>
+<h2 id="rejected">Rejected</h2>
+<ul>
+<li><strong>TECHM:</strong> C 1,834.7 at the day high (L 1,790), 1.54× volume, RS +20.3, but RSI 76.8 (stretched) and noise 1.69 (ATR 2.87%).</li>
+<li><strong>MPHASIS:</strong> C 2,575.0 (H 2,580 / L 2,491, close_pos 0.94), 2.08× volume, RS +14.7, but RSI 72.1 and noise 1.58 (ATR 2.83%). A noise-proof stop leaves too few shares, as on 19 Oct.</li>
+<li><strong>HCLTECH:</strong> C 1,424.2 at the day high, RS +13.8, but RSI 73.3, 0.94× volume and noise 1.64.</li>
+<li><strong>DRREDDY:</strong> C 1,244.5 (H 1,252 / L 1,232.5, close_pos 0.62). Rejected at the 1,250.7–1,252.8 supply again, 0.56× volume (fourth thin session), noise 0.96 borderline. Watch-only.</li>
+<li><strong>PERSISTENT</strong> (price fit, noise 1.62), <strong>TATAELXSI</strong> (price fit, 0.59× volume, RSI 71.8), <strong>COFORGE</strong> (close_pos 0.53, noise 1.58), <strong>ICICIGI</strong> (close_pos 0.38, RSI 54.8, noise 1.36), <strong>KOTAKBANK</strong> (close_pos 0.27 after a 446.85 high, 0.48× volume), <strong>PNB</strong> (close_pos 0.40, noise 1.49), <strong>PETRONET</strong> (close_pos 0.18), <strong>SUPREMEIND / HAL</strong> (price fit, RS &lt; +5, weak close), <strong>INDHOTEL</strong> (RS +3.7, close_pos 0.39).</li>
+</ul>
+<h2 id="if-only-one-slot">If only one slot</h2>
+<p>None. The IT leaders (TECHM, MPHASIS, HCLTECH) are strong but stretched and too noisy for a 1% stop; DRREDDY still needs volume and a close above 1,252.8.</p>
+<h2 id="wed-21-oct-outcome">Wed 21 Oct outcome</h2>
+<p>Empty list, so no trade (₹0). The tally is unchanged at about −₹56 net after 3 real trades.</p>
+<p>Sources: Yahoo Finance chart API (^NSEI and .NS daily/15m), scan in <code>intraday/data/2026-10-22/</code>.</p>
+<h2 id="day-notes-thu-22-oct-2026-after-the-close">Day notes: Thu 22 Oct 2026 (after the close)</h2>
+<ul>
+<li><strong>Intraday:</strong> empty list for Thu 22 Oct. 176 names scanned from Wed 21 Oct data; 14 were above rising 20- and 50-day averages, but none passed every gate. The strongest closes were IT names (TECHM, MPHASIS, HCLTECH), but all were overbought (RSI above 70) and too noisy for a 1% stop. DRREDDY was turned back at the same ₹1,252 supply level on thin volume (0.56× its 20-day average). No trade, ₹0. The tally stays about −₹56 net after 3 real trades.</li>
+<li><strong>Market:</strong> Nifty closed 22,687.65 (−0.54%), still below a falling 50-day average.</li>
+<li><strong>IPO paper sleeve:</strong> Bonfiglioli Transmissions was not allotted. Retail was 5.90× subscribed by shares (about 5.2× by applications), so a one-lot retail bid had roughly a 1-in-5 chance, and the sleeve only books an allotment when the odds are at least 50%. The ₹14,650 was refunded, leaving about ₹13,428 blocked for the Jio Platforms bid (window 21–23 Oct). A tracked-only line of 25 shares at ₹586 will be marked at the NSE listing (expected 23 Oct) to score the call; it doesn't count toward sleeve P&amp;L.</li>
+<li><strong>Paper books:</strong> equity and US sleeves still flat (cash only) as of the 22 Oct close. No secondary-market paper trades.</li>
+<li><strong>Experiments:</strong> no new experiments.</li>
+</ul></main>
+<!-- Giscus comments (GitHub Discussions). Put just before </footer> or </body> on content pages only, not the home page. -->
+<section id="comments" class="comments" aria-labelledby="discuss-h">
+<p class="eyebrow">Comments</p>
+<h2 id="discuss-h">Discuss this page</h2>
+<p class="note">Comments use GitHub Discussions, so you need a GitHub account to post.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="curiosta/equity"
+        data-repo-id="R_kgDOU5tv1Q"
+        data-category="Comments"
+        data-category-id="DIC_kwDOU5tv1c4DG97C"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</section>
+
+<footer><div class="wrap"><p class="fbrand">Equity desk</p><p>Updated Thu 22 Oct 2026, 20:20 IST. Part of <a href="https://www.curiosta.com/">Curiosta</a>. Not investment advice.</p></div></footer>
+</body></html>
